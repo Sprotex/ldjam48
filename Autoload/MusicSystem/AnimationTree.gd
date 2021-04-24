@@ -1,4 +1,5 @@
-extends AnimationPlayer
+extends AnimationTree
+
 
 onready var hihats = get_node("../AudioStreams/HH").get_children()
 onready var kicks = get_node("../AudioStreams/KD").get_children()
@@ -45,7 +46,7 @@ func _input(event):
 	
 	
 func update_tracks():
-	print("player")
+	print("tree")
 	var selected_root_note = bar_count%4
 	current_intensity = intensity
 	bar_count += 1
@@ -85,6 +86,4 @@ func update_tracks():
 	
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+

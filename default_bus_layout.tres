@@ -1,7 +1,7 @@
 [gd_resource type="AudioBusLayout" format=2]
 
 [resource]
-bus/0/send = "Snare"
+bus/0/volume_db = -13.5101
 bus/1/name = "Drums"
 bus/1/solo = false
 bus/1/mute = false
@@ -26,3 +26,21 @@ bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = 0.0
 bus/4/send = "Drums"
+bus/5/name = "Arp"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.0
+bus/5/send = "Master"
+bus/6/name = "Bass"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = 0.0
+bus/6/send = "Master"
+bus/7/name = "Root"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = 0.0
+bus/7/send = "Master"

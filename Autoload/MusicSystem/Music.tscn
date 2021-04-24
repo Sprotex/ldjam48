@@ -173,22 +173,22 @@ tracks/9/keys = {
 } ],
 "times": PoolRealArray( 0 )
 }
-tracks/10/type = "method"
-tracks/10/path = NodePath("AnimationPlayer")
+tracks/10/type = "audio"
+tracks/10/path = NodePath("AudioStreams/ARP/arp_01")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "update_tracks"
-} ]
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 12 )
+} ],
+"times": PoolRealArray( 0 )
 }
 tracks/11/type = "audio"
-tracks/11/path = NodePath("AudioStreams/ARP/arp_01")
+tracks/11/path = NodePath("AudioStreams/Bass/bass_01")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -197,12 +197,12 @@ tracks/11/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 12 )
+"stream": ExtResource( 15 )
 } ],
 "times": PoolRealArray( 0 )
 }
 tracks/12/type = "audio"
-tracks/12/path = NodePath("AudioStreams/Bass/bass_01")
+tracks/12/path = NodePath("AudioStreams/Chord/root_C")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -211,12 +211,12 @@ tracks/12/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 15 )
+"stream": ExtResource( 13 )
 } ],
 "times": PoolRealArray( 0 )
 }
 tracks/13/type = "audio"
-tracks/13/path = NodePath("AudioStreams/Chord/root_C")
+tracks/13/path = NodePath("AudioStreams/Chord/root_F")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -225,12 +225,12 @@ tracks/13/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 13 )
+"stream": ExtResource( 16 )
 } ],
 "times": PoolRealArray( 0 )
 }
 tracks/14/type = "audio"
-tracks/14/path = NodePath("AudioStreams/Chord/root_F")
+tracks/14/path = NodePath("AudioStreams/Chord/root_Ds")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -239,12 +239,12 @@ tracks/14/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 16 )
+"stream": ExtResource( 14 )
 } ],
 "times": PoolRealArray( 0 )
 }
 tracks/15/type = "audio"
-tracks/15/path = NodePath("AudioStreams/Chord/root_Ds")
+tracks/15/path = NodePath("AudioStreams/Chord/root_G")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -253,41 +253,51 @@ tracks/15/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 14 )
+"stream": ExtResource( 11 )
 } ],
 "times": PoolRealArray( 0 )
 }
-tracks/16/type = "audio"
-tracks/16/path = NodePath("AudioStreams/Chord/root_G")
+tracks/16/type = "method"
+tracks/16/path = NodePath("AnimationPlayer")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "update_tracks"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "drumTu"
+length = 1.6
+loop = true
+tracks/0/type = "audio"
+tracks/0/path = NodePath("AudioStreams/KD/kd_02")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 11 )
+"stream": ExtResource( 9 )
 } ],
 "times": PoolRealArray( 0 )
 }
-
-[sub_resource type="AnimationNodeBlendTree" id=2]
-graph_offset = Vector2( 111.819, -64 )
-nodes/output/position = Vector2( 660, 60 )
 
 [node name="Spatial" type="Spatial"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "DrumTrack"
 anims/DrumTrack = SubResource( 1 )
+anims/drumTu = SubResource( 2 )
 script = ExtResource( 3 )
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 2 )
-anim_player = NodePath("../AnimationPlayer")
-active = true
-root_motion_track = NodePath("KickTrack")
 
 [node name="AudioStreams" type="Node" parent="."]
 
@@ -336,17 +346,29 @@ bus = "Kick"
 [node name="ARP" type="Node" parent="AudioStreams"]
 
 [node name="arp_01" type="AudioStreamPlayer" parent="AudioStreams/ARP"]
+stream = ExtResource( 12 )
+bus = "Arp"
 
 [node name="Bass" type="Node" parent="AudioStreams"]
 
 [node name="bass_01" type="AudioStreamPlayer" parent="AudioStreams/Bass"]
+stream = ExtResource( 15 )
+bus = "Bass"
 
 [node name="Chord" type="Node" parent="AudioStreams"]
 
 [node name="root_C" type="AudioStreamPlayer" parent="AudioStreams/Chord"]
+stream = ExtResource( 13 )
+bus = "Root"
 
 [node name="root_F" type="AudioStreamPlayer" parent="AudioStreams/Chord"]
+stream = ExtResource( 16 )
+bus = "Root"
 
 [node name="root_Ds" type="AudioStreamPlayer" parent="AudioStreams/Chord"]
+stream = ExtResource( 14 )
+bus = "Root"
 
 [node name="root_G" type="AudioStreamPlayer" parent="AudioStreams/Chord"]
+stream = ExtResource( 11 )
+bus = "Root"
