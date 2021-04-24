@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/kick4_4.ogg-28d17339a87d0dcc75245cdf9004c0d2.oggstr"
+
+[deps]
+
+source_file="res://Autoload/MusicSystem/SoundAssets/kick4_4.ogg"
+dest_files=[ "res://.import/kick4_4.ogg-28d17339a87d0dcc75245cdf9004c0d2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

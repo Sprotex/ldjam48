@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/hihat2.ogg-e8628d3cef60056e4370fe2003899dda.oggstr"
+
+[deps]
+
+source_file="res://Autoload/MusicSystem/SoundAssets/hihat2.ogg"
+dest_files=[ "res://.import/hihat2.ogg-e8628d3cef60056e4370fe2003899dda.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
