@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Autoload/MusicSystem/SoundAssets/hihat2.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Autoload/MusicSystem/SoundAssets/snare5.ogg" type="AudioStream" id=2]
@@ -10,6 +10,12 @@
 [ext_resource path="res://Autoload/MusicSystem/SoundAssets/snare4.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Autoload/MusicSystem/SoundAssets/kick4_4.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Autoload/MusicSystem/SoundAssets/kick2_4.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/bass_root_G.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/arp_01.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/bass_root_C.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/bass_root_Ds.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/bass_01.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/bass_root_F.ogg" type="AudioStream" id=16]
 
 [sub_resource type="Animation" id=1]
 resource_name = "DrumTrack"
@@ -181,6 +187,90 @@ tracks/10/keys = {
 "method": "update_tracks"
 } ]
 }
+tracks/11/type = "audio"
+tracks/11/path = NodePath("AudioStreams/ARP/arp_01")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 12 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/12/type = "audio"
+tracks/12/path = NodePath("AudioStreams/Bass/bass_01")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 15 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/13/type = "audio"
+tracks/13/path = NodePath("AudioStreams/Chord/root_C")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/14/type = "audio"
+tracks/14/path = NodePath("AudioStreams/Chord/root_F")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 16 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/15/type = "audio"
+tracks/15/path = NodePath("AudioStreams/Chord/root_Ds")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 14 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/16/type = "audio"
+tracks/16/path = NodePath("AudioStreams/Chord/root_G")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 11 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="AnimationNodeBlendTree" id=2]
 graph_offset = Vector2( 111.819, -64 )
@@ -242,3 +332,21 @@ bus = "Kick"
 [node name="kd_02" type="AudioStreamPlayer" parent="AudioStreams/KD"]
 stream = ExtResource( 9 )
 bus = "Kick"
+
+[node name="ARP" type="Node" parent="AudioStreams"]
+
+[node name="arp_01" type="AudioStreamPlayer" parent="AudioStreams/ARP"]
+
+[node name="Bass" type="Node" parent="AudioStreams"]
+
+[node name="bass_01" type="AudioStreamPlayer" parent="AudioStreams/Bass"]
+
+[node name="Chord" type="Node" parent="AudioStreams"]
+
+[node name="root_C" type="AudioStreamPlayer" parent="AudioStreams/Chord"]
+
+[node name="root_F" type="AudioStreamPlayer" parent="AudioStreams/Chord"]
+
+[node name="root_Ds" type="AudioStreamPlayer" parent="AudioStreams/Chord"]
+
+[node name="root_G" type="AudioStreamPlayer" parent="AudioStreams/Chord"]
