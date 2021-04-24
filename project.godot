@@ -21,8 +21,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Constants="*res://Constants.tscn"
-Music="*res://Music.tscn"
+Constants="*res://Autoload/Constants/Constants.tscn"
+Music="*res://Autoload/MusicSystem/Music.tscn"
 
 [input]
 

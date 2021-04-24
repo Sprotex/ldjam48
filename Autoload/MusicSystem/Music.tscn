@@ -1,0 +1,145 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/Bobeats RYTM SNARE 2.wav" type="AudioStream" id=1]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/Bobeats RYTM Kick.wav" type="AudioStream" id=2]
+[ext_resource path="res://Autoload/MusicSystem/AnimationPlayer.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "DrumTrack"
+length = 1.6
+loop = true
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Snare")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 1 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 1 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 1 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 1 )
+} ],
+"times": PoolRealArray( 0.2, 0.201, 0.6, 0.601, 1, 1.001, 1.4, 1.401 )
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("Kick")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+} ],
+"times": PoolRealArray( 0, 0.001, 0.4, 0.401, 0.8, 0.801, 1.2, 1.201 )
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( -0.1, 0, 0.4, 0.8, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "onBeat" ],
+"method": "emit_signal"
+}, {
+"args": [  ],
+"method": "onBeat"
+}, {
+"args": [  ],
+"method": "onBeat"
+}, {
+"args": [  ],
+"method": "onBeat"
+}, {
+"args": [  ],
+"method": "onBeat"
+} ]
+}
+
+[sub_resource type="AnimationNodeBlendTree" id=2]
+graph_offset = Vector2( 111.819, -64 )
+nodes/output/position = Vector2( 660, 60 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Kick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "Kick"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "DrumTrack"
+anims/DrumTrack = SubResource( 1 )
+script = ExtResource( 3 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 2 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+root_motion_track = NodePath("KickTrack")
+
+[node name="Snare" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+bus = "Snare"
