@@ -1,7 +1,7 @@
 extends Node
 
 onready var root = get_parent()
-onready var bomb_scene = preload("res://Actor Scenes/Bomb.tscn")
+onready var bomb_scene = preload("res://Actor Scenes/Bomb/Bomb.tscn")
 
 func place_bomb():
 	var bomb_instance = bomb_scene.instance()

@@ -18,10 +18,3 @@ follow_node_path = NodePath("../Player")
 [node name="Enviro" type="Spatial" parent="."]
 script = ExtResource( 3 )
 player_path = NodePath("../Player")
-
-[node name="Control" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}

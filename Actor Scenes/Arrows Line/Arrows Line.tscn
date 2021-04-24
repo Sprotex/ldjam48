@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Line.gd" type="Script" id=1]
+[ext_resource path="res://Arrow.gd" type="Script" id=2]
+[ext_resource path="res://UI/Arrows/Active/arrow_down_01.png" type="Texture" id=3]
+[ext_resource path="res://UI/Arrows/Active/arrow_left_01.png" type="Texture" id=4]
+[ext_resource path="res://UI/Arrows/Active/arrow_up_01.png" type="Texture" id=5]
+[ext_resource path="res://UI/Arrows/Inactive/arrow_up_02.png" type="Texture" id=6]
+[ext_resource path="res://UI/Arrows/Inactive/arrow_right_02.png" type="Texture" id=7]
+[ext_resource path="res://UI/Arrows/Inactive/arrow_left_02.png" type="Texture" id=8]
+[ext_resource path="res://UI/Arrows/Active/arrow_right_01.png" type="Texture" id=9]
+[ext_resource path="res://UI/Arrows/Inactive/arrow_down_02.png" type="Texture" id=10]
+
+[node name="Arrows Line" type="HBoxContainer"]
+margin_right = 1252.0
+margin_bottom = 310.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureRect" parent="."]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 4 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active_texture = ExtResource( 4 )
+inactive_texture = ExtResource( 8 )
+
+[node name="Down" type="TextureRect" parent="."]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
+active_texture = ExtResource( 3 )
+inactive_texture = ExtResource( 10 )
+
+[node name="Up" type="TextureRect" parent="."]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 5 )
+script = ExtResource( 2 )
+active_texture = ExtResource( 5 )
+inactive_texture = ExtResource( 6 )
+
+[node name="Right" type="TextureRect" parent="."]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 9 )
+script = ExtResource( 2 )
+active_texture = ExtResource( 9 )
+inactive_texture = ExtResource( 7 )

@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Autoload/Bomb Overlay/Arrow Generator.gd" type="Script" id=1]
+[ext_resource path="res://Autoload/Bomb Overlay/Bomb Overlay.gd" type="Script" id=11]
+[ext_resource path="res://Autoload/Bomb Overlay/Keyboard Handler.gd" type="Script" id=12]
+
+[node name="Bomb Overlay" type="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 2389.33
+margin_bottom = 1400.0
+rect_scale = Vector2( 0.3, 0.3 )
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lines" type="VBoxContainer" parent="ScrollContainer"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Countdown Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -107.0
+margin_top = -37.0
+margin_right = 107.0
+margin_bottom = 38.0
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Keyboard Handler" type="Node" parent="."]
+script = ExtResource( 12 )
+
+[node name="Arrow Generator" type="Node" parent="."]
+script = ExtResource( 1 )
+[connection signal="visibility_changed" from="." to="." method="_on_Bomb_Overlay_visibility_changed"]
