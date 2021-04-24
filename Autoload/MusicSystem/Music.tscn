@@ -31,8 +31,8 @@
 resource_name = "PartA"
 length = 6.4
 loop = true
-tracks/0/type = "method"
-tracks/0/path = NodePath("AnimationPlayer")
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Snare")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -206,7 +206,7 @@ tracks/8/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 5 )
 } ],
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0.2, 0.201, 0.6, 0.601, 1, 1.001, 1.4, 1.401 )
 }
 tracks/9/type = "audio"
 tracks/9/path = NodePath("AudioStreams/PartA/partA_01")
@@ -304,7 +304,7 @@ tracks/15/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 21 )
 } ],
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0, 0.001, 0.4, 0.401, 0.8, 0.801, 1.2, 1.201 )
 }
 tracks/16/type = "audio"
 tracks/16/path = NodePath("AudioStreams/PartA/partA_08")

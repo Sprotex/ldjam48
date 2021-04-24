@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Actor Scenes/Enemy/AI Movement Handler.gd" type="Script" id=1]
+[ext_resource path="res://Actor Scenes/Enemy/Enemy Material.tres" type="Material" id=4]
+
+[node name="Enemy" type="Spatial"]
+
+[node name="CSGCylinder" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+height = 2.0
+sides = 16
+material = ExtResource( 4 )
+
+[node name="Movement Handler" type="Node" parent="."]
+script = ExtResource( 1 )

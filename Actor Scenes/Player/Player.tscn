@@ -19,5 +19,5 @@ script = ExtResource( 2 )
 
 [node name="Bomb Handler" type="Node" parent="."]
 script = ExtResource( 3 )
-[connection signal="on_input_pressed" from="Movement Input" to="Movement Handler" method="_on_Movement_Input_on_input_pressed"]
 [connection signal="on_input_pressed" from="Movement Input" to="Bomb Handler" method="_on_Movement_Input_on_input_pressed"]
+[connection signal="on_input_pressed" from="Movement Input" to="Movement Handler" method="_on_Movement_Input_on_input_pressed"]

@@ -16,13 +16,15 @@ _global_script_class_icons={
 [application]
 
 config/name="LDJAM48"
-run/main_scene="res://Andy.tscn"
+run/main_scene="res://Root.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Constants="*res://Autoload/Constants/Constants.tscn"
 Music="*res://Autoload/MusicSystem/Music.tscn"
+BombOverlay="*res://Autoload/Bomb Overlay/Bomb Overlay.tscn"
+TickSynchronizer="*res://Autoload/Tick Synchronizer/Tick Synchronizer.tscn"
 
 [input]
 
