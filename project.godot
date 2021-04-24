@@ -19,6 +19,10 @@ config/name="LDJAM48"
 run/main_scene="res://Andy.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Constants="*res://Constants.tscn"
+
 [input]
 
 ui_left={
