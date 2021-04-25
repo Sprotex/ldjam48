@@ -1,0 +1,27 @@
+extends Control
+
+onready var music = get_node("/root/Music")
+onready var tick_synchronizer = get_node("/root/TickSynchronizer")
+onready var scroll_container = get_node("ScrollContainer")
+onready var constants = get_node("/root/Constants")
+var scroll_amount = 0.0
+var max_scroll = 0
+var ENABLED = true
+
+func _ready() -> void:
+	yield(get_tree(), "idle_frame")
+	music.get_node("AnimationPlayer").connect("on_beat", self, "_process_beat")
+	scroll_container.scroll_horizontal = 123456789
+	max_scroll = scroll_container.scroll_horizontal
+	scroll_container.scroll_horizontal = 0
+
+func _process(delta: float) -> void:
+	if ENABLED:
+		scroll_amount += delta
+		var t = inverse_lerp(0, tick_synchronizer.usec_avg_diff * 0.000001, scroll_amount)
+		scroll_container.scroll_horizontal = round(t * max_scroll)
+
+func _process_beat():
+	if ENABLED:
+		scroll_amount = 0
+		scroll_container.scroll_horizontal = 0

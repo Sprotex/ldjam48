@@ -14,7 +14,7 @@ signal on_post_beat
 func _ready() -> void:
 	print("Tick sync ready")
 	var music = get_node("/root/Music").get_node("AnimationPlayer")
-	music.connect("onBeat", self, "_process_beat")
+	music.connect("on_beat", self, "_process_beat")
 	pre_beat_timer.wait_time = constants.beat_length - constants.beat_tolerance_sec
 	pre_beat_timer.connect("timeout", self, "_process_pre_beat")
 	for post_beat_timer in post_beat_timers:
@@ -34,7 +34,7 @@ func _process_beat():
 		usec_avg_diff /= last_beats.size() - 1
 	if last_beats.size() > SYNC_BEATS:
 		last_beats.pop_front()
-		
+
 func _process_pre_beat():
 	emit_signal("on_pre_beat")
 

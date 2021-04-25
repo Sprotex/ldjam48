@@ -1,17 +1,13 @@
 extends Node
 
 var input_pressed = {}
+var is_on_beat = false
 onready var processed_inputs = ["ui_up", "ui_down", "ui_left", "ui_right", "bomb"]
 onready var bomb_overlay = get_node("/root/BombOverlay")
 
 signal on_input_pressed(action_mapping)
-
-func process_action(event: InputEvent, action_mapping: String):
-	if event.is_action_pressed(action_mapping):
-		input_pressed[action_mapping] = true
-		emit_signal("on_input_pressed",action_mapping)
-	if event.is_action_released(action_mapping):
-		input_pressed[action_mapping] = false
+signal on_beat_input
+signal off_beat_input
 
 func _input(event):
 	if not bomb_overlay.visible:
@@ -19,5 +15,25 @@ func _input(event):
 			process_action(event, input)
 
 func _ready() -> void:
+	var tick_synchronizer = get_node("/root/TickSynchronizer")
+	tick_synchronizer.connect("on_pre_beat", self, "_process_pre_beat")
+	tick_synchronizer.connect("on_post_beat", self, "_process_post_beat")
 	for input in processed_inputs:
 		input_pressed[input] = false
+
+func _process_pre_beat():
+	is_on_beat = true
+
+func _process_post_beat():
+	is_on_beat = false
+
+func process_action(event: InputEvent, action_mapping: String):
+	if event.is_action_pressed(action_mapping):
+		input_pressed[action_mapping] = true
+		emit_signal("on_input_pressed",action_mapping)
+		if is_on_beat:
+			emit_signal("on_beat_input")
+		else:
+			emit_signal("off_beat_input")
+	if event.is_action_released(action_mapping):
+		input_pressed[action_mapping] = false

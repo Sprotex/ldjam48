@@ -1,7 +1,8 @@
 extends Control
 
 const DEFAULT_PREPARE_BEATS = 3
-onready var music_system = get_node("/root/Music").get_node("AnimationPlayer")
+onready var music = get_node("/root/Music")
+onready var music_system = music.get_node("AnimationPlayer")
 onready var countdown_text = get_node("Countdown Label")
 onready var arrow_generator = get_node("Arrow Generator")
 onready var keyboard_handler = get_node("Keyboard Handler")

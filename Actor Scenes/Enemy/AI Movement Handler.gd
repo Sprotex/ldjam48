@@ -36,7 +36,6 @@ func _move(x, z):
 	print("  ", x, " ", z)
 
 func _move_random():
-	print("  RANDOM")
 	var signum = sign(randf() - 0.5)
 	if randf() > 0.5:
 		_move(signum, 0)
@@ -52,16 +51,13 @@ func _process_move():
 func _process_player_movement():
 	if bomb_overlay.visible:
 		return
-	print("MOVE")
 	ignore_next_post_beat = true
 	_process_move()
 
 func _process_post_beat():
-	print("PROCESS POST BEAT")
 	if bomb_overlay.visible:
 		return
 	if ignore_next_post_beat:
 		ignore_next_post_beat = false
 		return
-	print("BEAT")
 	_process_move()

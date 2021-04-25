@@ -31,8 +31,8 @@
 resource_name = "PartA"
 length = 6.4
 loop = true
-tracks/0/type = "audio"
-tracks/0/path = NodePath("Snare")
+tracks/0/type = "method"
+tracks/0/path = NodePath("AnimationPlayer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -473,6 +473,25 @@ tracks/27/keys = {
 "stream": ExtResource( 26 )
 } ],
 "times": PoolRealArray( 0, 4.8 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "drumTu"
+length = 1.6
+loop = true
+tracks/0/type = "audio"
+tracks/0/path = NodePath("AudioStreams/KD/kd_02")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [node name="Spatial" type="Spatial"]
