@@ -51,7 +51,7 @@ func _generate_tile(x, z):
 	if should_spawn_exit:
 		_spawn_tile(x, z, exit_tile)
 	elif should_spawn_unbreakable_tile_border or should_spawn_unbreakable_tile_inside:
-		var tile = _spawn_tile(x, z, unbreakable_tile)
+		_spawn_tile(x, z, unbreakable_tile)
 	elif should_spawn_enemy:
 		_spawn_enemy(x, z)
 	elif should_spawn_breakable_tile:
@@ -81,7 +81,6 @@ func _generate_enemy_positions():
 		print("GENERATED ", len(this_level_enemy_positions), " ENEMIES")
 
 func generate_objects():
-	return
 	this_level_exit_x = - 1 - (randi() % (depth - 2))
 	_generate_enemy_positions()
 	print("Maze size: ", width, " ", depth)

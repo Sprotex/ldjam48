@@ -6,7 +6,6 @@ onready var scroll_container = get_node("ScrollContainer")
 onready var constants = get_node("/root/Constants")
 var scroll_amount = 0.0
 var max_scroll = 0
-var ENABLED = true
 
 func _ready() -> void:
 	yield(get_tree(), "idle_frame")
@@ -17,7 +16,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	scroll_amount += delta
-	var t = inverse_lerp(0, tick_synchronizer.usec_avg_diff * 0.000001, scroll_amount)
+	var t = inverse_lerp(0, constants.beat_length, scroll_amount)
 	scroll_container.scroll_horizontal = round(t * max_scroll)
 
 func _process_beat():

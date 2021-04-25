@@ -11,12 +11,6 @@ extents = Vector3( 0.61337, 0.447126, 0.677631 )
 [node name="Cube" parent="." index="0"]
 transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0 )
 
-[node name="Light" parent="." index="1"]
-visible = false
-
-[node name="Camera" parent="." index="2"]
-visible = false
-
 [node name="Area" type="Area" parent="." index="3"]
 script = ExtResource( 2 )
 

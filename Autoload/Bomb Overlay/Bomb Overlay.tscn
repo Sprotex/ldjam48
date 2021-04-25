@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Autoload/Bomb Overlay/Arrow Generator.gd" type="Script" id=1]
+[ext_resource path="res://Autoload/Bomb Overlay/Arrow Setter.gd" type="Script" id=1]
+[ext_resource path="res://Autoload/Bomb Overlay/Line.gd" type="Script" id=2]
+[ext_resource path="res://Arrow.gd" type="Script" id=3]
+[ext_resource path="res://UI/Arrows/Inactive/arrow_down_02.png" type="Texture" id=4]
+[ext_resource path="res://UI/Arrows/Inactive/arrow_right_02.png" type="Texture" id=5]
+[ext_resource path="res://UI/Arrows/Active/arrow_right_01.png" type="Texture" id=6]
+[ext_resource path="res://UI/Arrows/Active/arrow_left_01.png" type="Texture" id=7]
+[ext_resource path="res://UI/Arrows/Active/arrow_down_01.png" type="Texture" id=8]
+[ext_resource path="res://UI/Arrows/Active/arrow_up_01.png" type="Texture" id=9]
+[ext_resource path="res://UI/Arrows/Inactive/arrow_up_02.png" type="Texture" id=10]
 [ext_resource path="res://Autoload/Bomb Overlay/Bomb Overlay.gd" type="Script" id=11]
 [ext_resource path="res://Autoload/Bomb Overlay/Keyboard Handler.gd" type="Script" id=12]
+[ext_resource path="res://UI/Arrows/Inactive/arrow_left_02.png" type="Texture" id=13]
+[ext_resource path="res://Autoload/Bomb Overlay/Scroll Handler.gd" type="Script" id=14]
 
 [node name="Bomb Overlay" type="Control"]
 visible = false
@@ -13,11 +24,53 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="Default Arrows Line" type="HBoxContainer" parent="."]
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 2389.33
-margin_bottom = 1400.0
+margin_left = -376.0
+margin_right = 876.0
+margin_bottom = 310.0
+rect_scale = Vector2( 0.3, 0.3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureRect" parent="Default Arrows Line"]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Down" type="TextureRect" parent="Default Arrows Line"]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 4 )
+
+[node name="Up" type="TextureRect" parent="Default Arrows Line"]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 10 )
+
+[node name="Right" type="TextureRect" parent="Default Arrows Line"]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 5 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -376.0
+margin_right = 888.0
+margin_bottom = 5025.0
 rect_scale = Vector2( 0.3, 0.3 )
 scroll_horizontal_enabled = false
 __meta__ = {
@@ -25,29 +78,884 @@ __meta__ = {
 }
 
 [node name="Lines" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 1252.0
+margin_bottom = 5334.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Countdown Label" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -107.0
-margin_top = -37.0
-margin_right = 107.0
-margin_bottom = 38.0
-text = "0"
-align = 1
-valign = 1
+[node name="Arrows Line" type="HBoxContainer" parent="ScrollContainer/Lines"]
+margin_right = 1252.0
+margin_bottom = 310.0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Left" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line"]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active_texture = ExtResource( 7 )
+inactive_texture = ExtResource( 13 )
+
+[node name="Down" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line"]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 8 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 8 )
+inactive_texture = ExtResource( 4 )
+
+[node name="Up" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line"]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 9 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 9 )
+inactive_texture = ExtResource( 10 )
+
+[node name="Right" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line"]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 6 )
+inactive_texture = ExtResource( 5 )
+
+[node name="Arrows Line2" type="HBoxContainer" parent="ScrollContainer/Lines"]
+margin_top = 314.0
+margin_right = 1252.0
+margin_bottom = 624.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line2"]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active_texture = ExtResource( 7 )
+inactive_texture = ExtResource( 13 )
+
+[node name="Down" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line2"]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 8 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 8 )
+inactive_texture = ExtResource( 4 )
+
+[node name="Up" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line2"]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 9 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 9 )
+inactive_texture = ExtResource( 10 )
+
+[node name="Right" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line2"]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 6 )
+inactive_texture = ExtResource( 5 )
+
+[node name="Arrows Line3" type="HBoxContainer" parent="ScrollContainer/Lines"]
+margin_top = 628.0
+margin_right = 1252.0
+margin_bottom = 938.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line3"]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active_texture = ExtResource( 7 )
+inactive_texture = ExtResource( 13 )
+
+[node name="Down" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line3"]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 8 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 8 )
+inactive_texture = ExtResource( 4 )
+
+[node name="Up" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line3"]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 9 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 9 )
+inactive_texture = ExtResource( 10 )
+
+[node name="Right" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line3"]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 6 )
+inactive_texture = ExtResource( 5 )
+
+[node name="Arrows Line4" type="HBoxContainer" parent="ScrollContainer/Lines"]
+margin_top = 942.0
+margin_right = 1252.0
+margin_bottom = 1252.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line4"]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active_texture = ExtResource( 7 )
+inactive_texture = ExtResource( 13 )
+
+[node name="Down" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line4"]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 8 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 8 )
+inactive_texture = ExtResource( 4 )
+
+[node name="Up" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line4"]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 9 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 9 )
+inactive_texture = ExtResource( 10 )
+
+[node name="Right" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line4"]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 6 )
+inactive_texture = ExtResource( 5 )
+
+[node name="Arrows Line5" type="HBoxContainer" parent="ScrollContainer/Lines"]
+margin_top = 1256.0
+margin_right = 1252.0
+margin_bottom = 1566.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line5"]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active_texture = ExtResource( 7 )
+inactive_texture = ExtResource( 13 )
+
+[node name="Down" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line5"]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 8 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 8 )
+inactive_texture = ExtResource( 4 )
+
+[node name="Up" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line5"]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 9 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 9 )
+inactive_texture = ExtResource( 10 )
+
+[node name="Right" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line5"]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 6 )
+inactive_texture = ExtResource( 5 )
+
+[node name="Arrows Line6" type="HBoxContainer" parent="ScrollContainer/Lines"]
+margin_top = 1570.0
+margin_right = 1252.0
+margin_bottom = 1880.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line6"]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active_texture = ExtResource( 7 )
+inactive_texture = ExtResource( 13 )
+
+[node name="Down" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line6"]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 8 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 8 )
+inactive_texture = ExtResource( 4 )
+
+[node name="Up" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line6"]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 9 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 9 )
+inactive_texture = ExtResource( 10 )
+
+[node name="Right" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line6"]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 6 )
+inactive_texture = ExtResource( 5 )
+
+[node name="Arrows Line7" type="HBoxContainer" parent="ScrollContainer/Lines"]
+margin_top = 1884.0
+margin_right = 1252.0
+margin_bottom = 2194.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line7"]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active_texture = ExtResource( 7 )
+inactive_texture = ExtResource( 13 )
+
+[node name="Down" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line7"]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 8 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 8 )
+inactive_texture = ExtResource( 4 )
+
+[node name="Up" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line7"]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 9 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 9 )
+inactive_texture = ExtResource( 10 )
+
+[node name="Right" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line7"]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 6 )
+inactive_texture = ExtResource( 5 )
+
+[node name="Arrows Line8" type="HBoxContainer" parent="ScrollContainer/Lines"]
+margin_top = 2198.0
+margin_right = 1252.0
+margin_bottom = 2508.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line8"]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active_texture = ExtResource( 7 )
+inactive_texture = ExtResource( 13 )
+
+[node name="Down" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line8"]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 8 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 8 )
+inactive_texture = ExtResource( 4 )
+
+[node name="Up" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line8"]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 9 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 9 )
+inactive_texture = ExtResource( 10 )
+
+[node name="Right" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line8"]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 6 )
+inactive_texture = ExtResource( 5 )
+
+[node name="Arrows Line9" type="HBoxContainer" parent="ScrollContainer/Lines"]
+margin_top = 2512.0
+margin_right = 1252.0
+margin_bottom = 2822.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line9"]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active_texture = ExtResource( 7 )
+inactive_texture = ExtResource( 13 )
+
+[node name="Down" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line9"]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 8 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 8 )
+inactive_texture = ExtResource( 4 )
+
+[node name="Up" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line9"]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 9 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 9 )
+inactive_texture = ExtResource( 10 )
+
+[node name="Right" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line9"]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 6 )
+inactive_texture = ExtResource( 5 )
+
+[node name="Arrows Line10" type="HBoxContainer" parent="ScrollContainer/Lines"]
+margin_top = 2826.0
+margin_right = 1252.0
+margin_bottom = 3136.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line10"]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active_texture = ExtResource( 7 )
+inactive_texture = ExtResource( 13 )
+
+[node name="Down" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line10"]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 8 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 8 )
+inactive_texture = ExtResource( 4 )
+
+[node name="Up" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line10"]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 9 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 9 )
+inactive_texture = ExtResource( 10 )
+
+[node name="Right" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line10"]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 6 )
+inactive_texture = ExtResource( 5 )
+
+[node name="Arrows Line11" type="HBoxContainer" parent="ScrollContainer/Lines"]
+margin_top = 3140.0
+margin_right = 1252.0
+margin_bottom = 3450.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line11"]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active_texture = ExtResource( 7 )
+inactive_texture = ExtResource( 13 )
+
+[node name="Down" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line11"]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 8 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 8 )
+inactive_texture = ExtResource( 4 )
+
+[node name="Up" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line11"]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 9 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 9 )
+inactive_texture = ExtResource( 10 )
+
+[node name="Right" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line11"]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 6 )
+inactive_texture = ExtResource( 5 )
+
+[node name="Arrows Line12" type="HBoxContainer" parent="ScrollContainer/Lines"]
+margin_top = 3454.0
+margin_right = 1252.0
+margin_bottom = 3764.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line12"]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active_texture = ExtResource( 7 )
+inactive_texture = ExtResource( 13 )
+
+[node name="Down" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line12"]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 8 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 8 )
+inactive_texture = ExtResource( 4 )
+
+[node name="Up" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line12"]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 9 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 9 )
+inactive_texture = ExtResource( 10 )
+
+[node name="Right" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line12"]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 6 )
+inactive_texture = ExtResource( 5 )
+
+[node name="Arrows Line13" type="HBoxContainer" parent="ScrollContainer/Lines"]
+margin_top = 3768.0
+margin_right = 1252.0
+margin_bottom = 4078.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line13"]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active_texture = ExtResource( 7 )
+inactive_texture = ExtResource( 13 )
+
+[node name="Down" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line13"]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 8 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 8 )
+inactive_texture = ExtResource( 4 )
+
+[node name="Up" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line13"]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 9 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 9 )
+inactive_texture = ExtResource( 10 )
+
+[node name="Right" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line13"]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 6 )
+inactive_texture = ExtResource( 5 )
+
+[node name="Arrows Line14" type="HBoxContainer" parent="ScrollContainer/Lines"]
+margin_top = 4082.0
+margin_right = 1252.0
+margin_bottom = 4392.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line14"]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active_texture = ExtResource( 7 )
+inactive_texture = ExtResource( 13 )
+
+[node name="Down" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line14"]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 8 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 8 )
+inactive_texture = ExtResource( 4 )
+
+[node name="Up" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line14"]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 9 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 9 )
+inactive_texture = ExtResource( 10 )
+
+[node name="Right" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line14"]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 6 )
+inactive_texture = ExtResource( 5 )
+
+[node name="Arrows Line15" type="HBoxContainer" parent="ScrollContainer/Lines"]
+margin_top = 4396.0
+margin_right = 1252.0
+margin_bottom = 4706.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line15"]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active_texture = ExtResource( 7 )
+inactive_texture = ExtResource( 13 )
+
+[node name="Down" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line15"]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 8 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 8 )
+inactive_texture = ExtResource( 4 )
+
+[node name="Up" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line15"]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 9 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 9 )
+inactive_texture = ExtResource( 10 )
+
+[node name="Right" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line15"]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 6 )
+inactive_texture = ExtResource( 5 )
+
+[node name="Arrows Line16" type="HBoxContainer" parent="ScrollContainer/Lines"]
+margin_top = 4710.0
+margin_right = 1252.0
+margin_bottom = 5020.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line16"]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active_texture = ExtResource( 7 )
+inactive_texture = ExtResource( 13 )
+
+[node name="Down" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line16"]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 8 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 8 )
+inactive_texture = ExtResource( 4 )
+
+[node name="Up" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line16"]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 9 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 9 )
+inactive_texture = ExtResource( 10 )
+
+[node name="Right" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line16"]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 6 )
+inactive_texture = ExtResource( 5 )
+
+[node name="Arrows Line17" type="HBoxContainer" parent="ScrollContainer/Lines"]
+margin_top = 5024.0
+margin_right = 1252.0
+margin_bottom = 5334.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line17"]
+margin_right = 310.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active_texture = ExtResource( 7 )
+inactive_texture = ExtResource( 13 )
+
+[node name="Down" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line17"]
+margin_left = 314.0
+margin_right = 624.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 8 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 8 )
+inactive_texture = ExtResource( 4 )
+
+[node name="Up" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line17"]
+margin_left = 628.0
+margin_right = 938.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 9 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 9 )
+inactive_texture = ExtResource( 10 )
+
+[node name="Right" type="TextureRect" parent="ScrollContainer/Lines/Arrows Line17"]
+margin_left = 942.0
+margin_right = 1252.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 155, 155 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+active_texture = ExtResource( 6 )
+inactive_texture = ExtResource( 5 )
 
 [node name="Keyboard Handler" type="Node" parent="."]
 script = ExtResource( 12 )
 
-[node name="Arrow Generator" type="Node" parent="."]
+[node name="Arrow Setter" type="Node" parent="."]
 script = ExtResource( 1 )
+
+[node name="Scroll Handler" type="Node" parent="."]
+script = ExtResource( 14 )
 [connection signal="visibility_changed" from="." to="." method="_on_Bomb_Overlay_visibility_changed"]
