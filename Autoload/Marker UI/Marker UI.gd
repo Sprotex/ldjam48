@@ -16,12 +16,10 @@ func _ready() -> void:
 	scroll_container.scroll_horizontal = 0
 
 func _process(delta: float) -> void:
-	if ENABLED:
-		scroll_amount += delta
-		var t = inverse_lerp(0, tick_synchronizer.usec_avg_diff * 0.000001, scroll_amount)
-		scroll_container.scroll_horizontal = round(t * max_scroll)
+	scroll_amount += delta
+	var t = inverse_lerp(0, tick_synchronizer.usec_avg_diff * 0.000001, scroll_amount)
+	scroll_container.scroll_horizontal = round(t * max_scroll)
 
 func _process_beat():
-	if ENABLED:
-		scroll_amount = 0
-		scroll_container.scroll_horizontal = 0
+	scroll_amount = 0
+	scroll_container.scroll_horizontal = 0
