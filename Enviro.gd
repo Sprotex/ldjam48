@@ -61,13 +61,16 @@ func _generate_tile(x, z):
 	if should_spawn_exit:
 		_spawn_tile(x, z, exit_tile)
 	elif should_spawn_unbreakable_tile_border or should_spawn_unbreakable_tile_inside:
-		_spawn_tile(x, z, unbreakable_tile)
+		var tile = _spawn_tile(x, z, unbreakable_tile)
+		if z == 0:
+			tile.visible = false
 	elif should_spawn_breakable_first_line:
 		var tile_scene_index = randi() % 2
 		var tile = _spawn_tile(x, z, breakable_tiles[tile_scene_index])
 		tile.rotation_degrees.y = (randi() % 4) * 90
 	elif should_spawn_enemy:
 		_spawn_enemy(x, z)
+		spawn_floor(x, z)
 	elif should_spawn_breakable_tile:
 		var tile_scene_index = randi() % 2
 		var tile = _spawn_tile(x, z, breakable_tiles[tile_scene_index])

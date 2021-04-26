@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Actor Scenes/Player/Movement Input.gd" type="Script" id=1]
 [ext_resource path="res://Actor Scenes/Player/Movement Handler.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Actor Scenes/Player/Bonus Handler.gd" type="Script" id=6]
 [ext_resource path="res://Actor Scenes/Player/Health Regen.gd" type="Script" id=7]
 [ext_resource path="res://Models/Player/BOOM_GUY_inherited.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Actor Scenes/Player/Sound Emitter.gd" type="Script" id=9]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.805807, 0.855217, 0.827498 )
@@ -35,6 +36,9 @@ script = ExtResource( 6 )
 [node name="Health Regen" type="Node" parent="."]
 script = ExtResource( 7 )
 
+[node name="Sound Emitter" type="Node" parent="."]
+script = ExtResource( 9 )
+
 [node name="Player Area" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Player Area"]
@@ -43,6 +47,6 @@ shape = SubResource( 1 )
 
 [node name="BOOM_GUY" parent="." instance=ExtResource( 8 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
-[connection signal="on_input_pressed" from="Movement Input" to="Movement Handler" method="_on_Movement_Input_on_input_pressed"]
 [connection signal="on_input_pressed" from="Movement Input" to="Bomb Handler" method="_on_Movement_Input_on_input_pressed"]
+[connection signal="on_input_pressed" from="Movement Input" to="Movement Handler" method="_on_Movement_Input_on_input_pressed"]
 [connection signal="area_entered" from="Player Area" to="Collision Handler" method="_on_Area_area_entered"]

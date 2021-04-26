@@ -4,6 +4,8 @@ onready var world_updater = get_node("/root/WorldUpdater")
 onready var bomb_overlay = get_node("/root/BombOverlay")
 onready var constants = get_node("/root/Constants")
 onready var enviro_autoload = get_node("/root/EnviroAutoload")
+onready var music = get_node("/root/Music")
+onready var dynamic_music = music.get_node("AnimationPlayer")
 export var explosion_scene = preload("res://Actor Scenes/Bomb/Explosion Tile.tscn")
 
 var ticks_left = 3
@@ -26,6 +28,8 @@ func _process_world_update():
 		_explode()
 
 func _explode():
+	music.play_explosion()
+	dynamic_music.toggleChangePart()
 	var tile_size = constants.tile_size
 	var _enviro = enviro_autoload.enviro
 	var bomb = get_parent()

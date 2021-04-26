@@ -26,11 +26,12 @@ func onBeat():
 func increaseIntensity():
 	if intensity < 4:
 		intensity += 1
-	print(intensity)
+	print("Intensity: ", intensity)
+
 func decreaseIntensity():
 	if intensity > 0:
 		intensity -= 1
-	print(intensity)
+	print("Intensity: ", intensity)
 	
 func _input(event):
 	var just_pressed = event.is_pressed() and not event.is_echo()

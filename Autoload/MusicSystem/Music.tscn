@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Autoload/MusicSystem/SoundAssets/kick_01.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Autoload/MusicSystem/SoundAssets/kick_02.ogg" type="AudioStream" id=2]
@@ -26,6 +26,9 @@
 [ext_resource path="res://Autoload/MusicSystem/SoundAssets/partA_09.ogg" type="AudioStream" id=24]
 [ext_resource path="res://Autoload/MusicSystem/SoundAssets/crashEnd.ogg" type="AudioStream" id=25]
 [ext_resource path="res://Autoload/MusicSystem/SoundAssets/crashStart.ogg" type="AudioStream" id=26]
+[ext_resource path="res://Autoload/MusicSystem/Music.gd" type="Script" id=27]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/explosion.wav" type="AudioStream" id=28]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/tick.wav" type="AudioStream" id=29]
 
 [sub_resource type="Animation" id=1]
 resource_name = "PartA"
@@ -476,6 +479,7 @@ tracks/27/keys = {
 }
 
 [node name="Spatial" type="Spatial"]
+script = ExtResource( 27 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "PartA"
@@ -576,3 +580,11 @@ stream = ExtResource( 18 )
 [node name="Crash" type="Node" parent="AudioStreams"]
 
 [node name="crash" type="AudioStreamPlayer" parent="AudioStreams/Crash"]
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
+volume_db = -6.0
+
+[node name="Tick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
+volume_db = -2.0

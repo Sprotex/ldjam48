@@ -11,7 +11,6 @@ func set_enabled(_value):
 			parent.process_success_input()
 		else:
 			parent.process_fail_input()
-			print(line)
 	is_enabled = _value
 
 func _process(_delta) -> void:

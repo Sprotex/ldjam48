@@ -1,7 +1,6 @@
 extends Node
 
 onready var player = get_parent()
-onready var health = player.get_node("Health")
 onready var constants = get_node("/root/Constants")
 var on_beat_inputs = 0
 var beat_combo = 0
@@ -24,7 +23,6 @@ func _increase_beat_combo():
 
 func _apply_bonus():
 	beat_combo = 0
-	#health.call("TODO")
 
 func _process_off_beat_input():
 	_fail_bonus()
