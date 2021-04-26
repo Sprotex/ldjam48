@@ -57,7 +57,6 @@ func _generate_tile(x, z):
 	should_spawn_unbreakable_tile_inside = should_spawn_unbreakable_tile_inside and not is_first_row
 	var should_spawn_breakable_tile = randf() <= breakable_tile_chance
 	should_spawn_breakable_tile = should_spawn_breakable_tile and not is_first_row
-	_spawn_tile(x, z, floor_tile)
 	if should_spawn_exit:
 		_spawn_tile(x, z, exit_tile)
 	elif should_spawn_unbreakable_tile_border or should_spawn_unbreakable_tile_inside:
@@ -68,6 +67,8 @@ func _generate_tile(x, z):
 		var tile_scene_index = randi() % 2
 		var tile = _spawn_tile(x, z, breakable_tiles[tile_scene_index])
 		tile.rotation_degrees.y = (randi() % 4) * 90
+	else:
+		_spawn_tile(x, z, floor_tile)
 
 func delete_objects():
 	for child in get_children():
@@ -79,8 +80,8 @@ func _generate_enemy_positions():
 		var position
 		var is_position_occupied = true
 		while is_position_occupied:
-			var position_x = -1 - randi() % (width - 2)
-			var position_z = 1 + randi() % (depth - 2)
+			var position_x = -2 - randi() % (width - 3)
+			var position_z = 2 + randi() % (depth - 3)
 			position = Vector3(position_x, 0, position_z)
 			is_position_occupied = false
 			for generated_position in this_level_enemy_positions:
