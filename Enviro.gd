@@ -73,11 +73,14 @@ func _generate_tile(x, z):
 		var tile = _spawn_tile(x, z, breakable_tiles[tile_scene_index])
 		tile.rotation_degrees.y = (randi() % 4) * 90
 	else:
-		_spawn_tile(x, z, floor_tile)
+		spawn_floor(x, z)
 
 func delete_objects():
 	for child in get_children():
 		child.queue_free()
+
+func spawn_floor(x, z):
+	_spawn_tile(x, z, floor_tile)
 
 func _generate_enemy_positions():
 	this_level_enemy_positions.clear()

@@ -41,5 +41,6 @@ func _explode():
 				enviro_autoload.enviro.add_child(explosion)
 				var explodable = enviro_autoload.enviro.get_explodable_object(final_x, final_z)
 				if explodable != null:
+					enviro_autoload.enviro.spawn_floor(final_x / tile_size, final_z / tile_size)
 					explodable.queue_free()
 	bomb.queue_free()
