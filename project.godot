@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "ExitArea",
 "language": "GDScript",
 "path": "res://Models/Exit/Exit Area.gd"
+}, {
+"base": "Area",
+"class": "ExplosionArea",
+"language": "GDScript",
+"path": "res://Actor Scenes/Bomb/ExplosionArea.gd"
 } ]
 _global_script_class_icons={
-"ExitArea": ""
+"ExitArea": "",
+"ExplosionArea": ""
 }
 
 [application]
@@ -35,6 +41,7 @@ MarkerUi="*res://Autoload/Marker UI/Marker UI.tscn"
 WorldUpdater="*res://Autoload/World Updater/World Updater.tscn"
 EnviroAutoload="*res://Autoload/Enviro Autoload/Enviro Autoload.tscn"
 Music="*res://Autoload/MusicSystem/Music.tscn"
+HealthManager="*res://Autoload/Health Manager/Health Manager.tscn"
 
 [input]
 

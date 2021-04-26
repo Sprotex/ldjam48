@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Autoload/Health UI/Health Icon.gd" type="Script" id=1]
 [ext_resource path="res://UI/Heart/heart_01.png" type="Texture" id=2]
 [ext_resource path="res://UI/Heart/heart_01_b.png" type="Texture" id=3]
+[ext_resource path="res://Autoload/Health UI/Health UI.gd" type="Script" id=4]
 
 [node name="Health UI" type="MarginContainer"]
 anchor_right = 0.370117
@@ -10,6 +11,7 @@ anchor_bottom = 0.25
 margin_right = 645.0
 margin_bottom = 450.0
 rect_scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": true
 }

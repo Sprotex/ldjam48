@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Autoload/Health Manager/Health Manager.gd" type="Script" id=1]
+
+[node name="Health Manager" type="Node"]
+script = ExtResource( 1 )
