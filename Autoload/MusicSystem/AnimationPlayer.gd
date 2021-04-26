@@ -17,8 +17,9 @@ onready var first_part = true
 onready var half_time = 0
 
 var send_signal = true
-onready var current_part_a = true
-
+onready var change_part = false
+onready var parts = [partA, partB]
+onready var current_part = 0
 
 signal on_beat
 
@@ -48,7 +49,7 @@ func _input(event):
 	if Input.is_key_pressed(KEY_KP_SUBTRACT) and just_pressed:
 		decreaseIntensity()
 	if Input.is_key_pressed(KEY_P) and just_pressed:
-		changePart()
+		toggleChangePart()
 	if Input.is_key_pressed(KEY_L) and just_pressed:
 		halfTime()
 	if Input.is_key_pressed(KEY_M) and just_pressed:
@@ -57,15 +58,14 @@ func _input(event):
 func mute(array):
 	for i in array:
 		i.volume_db = -60.0
-func unmute(array):
-	for i in array:
-		i.volume_db = 0.0	
+	
 		
-func changePart():
-	if current_part_a:
-		current_part_a = false
+func toggleChangePart():
+	if change_part:
+		change_part = false
 	else:
-		current_part_a = true
+		change_part = true
+	
 	
 func halfTime():	
 	half_time += 2
@@ -79,7 +79,10 @@ func muteAll():
 	mute(partA)
 	mute(partB)	
 	mute(crash)
-	
+
+func unmute(part):
+	for i in range(current_intensity):
+		part[i].volume_db = 0.0
 
 	
 func update_tracks():
@@ -93,8 +96,10 @@ func update_tracks():
 	snares[half_time].volume_db = 0.0
 	
 	
-	for i in range(current_intensity):
-		if current_part_a:
-			partA[i].volume_db = 0.0
-		else:
-			partB[i].volume_db = 0.0
+	
+	if change_part and bar_count%4 == 1:
+		current_part += 1
+		unmute(parts[current_part%2])		
+		toggleChangePart()
+	else:
+		unmute(parts[current_part%2])
