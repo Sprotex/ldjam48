@@ -30,7 +30,7 @@ func _fail():
 	good_input_count = 0
 	bad_input_count += 1
 	if bad_input_count >= constants.combo_fail_beats:
-		dynamic_music.increaseIntensity()
+		dynamic_music.decreaseIntensity()
 		bad_input_count = 0
 
 func _process_off_beat_input():

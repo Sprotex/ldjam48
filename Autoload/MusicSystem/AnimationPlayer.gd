@@ -26,11 +26,6 @@ var double_time = 0
 
 signal on_beat
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	
-	pass # Replace with function body.
-
 func onBeat():
 	if send_signal:
 		emit_signal("on_beat")
@@ -39,24 +34,10 @@ func onBeat():
 func increaseIntensity():
 	if intensity < 89:
 		intensity += 1
-	print(intensity)
+	
 func decreaseIntensity():
 	if intensity > 0:
 		intensity -= 1
-	print(intensity)
-
-func _input(event):
-	var just_pressed = event.is_pressed() and not event.is_echo()
-	if Input.is_key_pressed(KEY_KP_ADD) and just_pressed:
-		increaseIntensity()
-	if Input.is_key_pressed(KEY_KP_SUBTRACT) and just_pressed:
-		decreaseIntensity()
-	if Input.is_key_pressed(KEY_P) and just_pressed:
-		toggleChangePart()
-	if Input.is_key_pressed(KEY_L) and just_pressed:
-		halfTime()
-	if Input.is_key_pressed(KEY_M) and just_pressed:
-		print(current_animation) 
 
 func mute(array):
 	for i in array:
@@ -68,8 +49,7 @@ func toggleChangePart():
 		change_part = false
 	else:
 		change_part = true
-	
-	
+
 func halfTime():	
 	half_time += 1
 	half_time = half_time%2
