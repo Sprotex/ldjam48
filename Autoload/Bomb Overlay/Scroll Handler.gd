@@ -5,7 +5,8 @@ onready var scroll_container = parent.get_node("ScrollContainer")
 onready var lines = parent.get_node("ScrollContainer/Lines")
 onready var tick_synchronizer = get_node("/root/TickSynchronizer")
 onready var constants = get_node("/root/Constants")
-onready var music = get_node("/root/Music").get_node("AnimationPlayer")
+onready var music_system = get_node("/root/Music")
+onready var music = music_system.get_node("AnimationPlayer")
 var max_scroll = 0
 var current_scroll = 0.0
 

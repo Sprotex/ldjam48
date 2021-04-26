@@ -206,7 +206,7 @@ tracks/8/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 5 )
 } ],
-"times": PoolRealArray( 0.2, 0.201, 0.6, 0.601, 1, 1.001, 1.4, 1.401 )
+"times": PoolRealArray( 0 )
 }
 tracks/9/type = "audio"
 tracks/9/path = NodePath("AudioStreams/PartA/partA_01")
@@ -304,7 +304,7 @@ tracks/15/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 21 )
 } ],
-"times": PoolRealArray( 0, 0.001, 0.4, 0.401, 0.8, 0.801, 1.2, 1.201 )
+"times": PoolRealArray( 0 )
 }
 tracks/16/type = "audio"
 tracks/16/path = NodePath("AudioStreams/PartA/partA_08")
@@ -473,25 +473,6 @@ tracks/27/keys = {
 "stream": ExtResource( 26 )
 } ],
 "times": PoolRealArray( 0, 4.8 )
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "drumTu"
-length = 1.6
-loop = true
-tracks/0/type = "audio"
-tracks/0/path = NodePath("AudioStreams/KD/kd_02")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 9 )
-} ],
-"times": PoolRealArray( 0 )
 }
 
 [node name="Spatial" type="Spatial"]
