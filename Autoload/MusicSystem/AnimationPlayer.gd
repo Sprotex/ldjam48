@@ -9,8 +9,9 @@ onready var partB = get_node("../AudioStreams/PartB").get_children()
 onready var crash = get_node("../AudioStreams/Crash").get_children()
 
 
-onready var current_intensity = 0
+onready var current_intensity_arr = [0,0,0,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9]
 onready var intensity = 0
+onready var current_intensity = 0
 
 onready var bar_count = 0
 onready var first_part = true
@@ -36,7 +37,7 @@ func onBeat():
 	send_signal = true
 	
 func increaseIntensity():
-	if intensity < 9:
+	if intensity < 89:
 		intensity += 1
 	print(intensity)
 func decreaseIntensity():
@@ -88,7 +89,7 @@ func unmute(part):
 
 	
 func update_tracks():
-	current_intensity = intensity
+	current_intensity = current_intensity_arr[intensity]
 	bar_count += 1
 	print(bar_count%4)
 	muteAll()
