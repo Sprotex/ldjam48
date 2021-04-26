@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LDJAM48"
-run/main_scene="res://Root.tscn"
+run/main_scene="res://Menu Scene.tscn"
 config/icon="res://UI/boom_boom_revolution.png"
 
 [autoload]
@@ -42,6 +42,12 @@ WorldUpdater="*res://Autoload/World Updater/World Updater.tscn"
 EnviroAutoload="*res://Autoload/Enviro Autoload/Enviro Autoload.tscn"
 Music="*res://Autoload/MusicSystem/Music.tscn"
 HealthManager="*res://Autoload/Health Manager/Health Manager.tscn"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/resizable=false
 
 [input]
 
