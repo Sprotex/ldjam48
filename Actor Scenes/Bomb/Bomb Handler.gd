@@ -11,7 +11,14 @@ var explosion_radius = 1
 
 func _ready() -> void:
 	bomb_overlay.visible = true
+	bomb_overlay.set_bomb(self)
 	world_updater.connect("on_world_update", self, "_process_world_update")
+
+func setup():
+	var additive_ticks = int(bomb_overlay.successful_step_count / 4)
+	var additive_radius = int(bomb_overlay.successful_step_count / 4)
+	ticks_left = min(7, ticks_left + additive_ticks)
+	explosion_radius = min(5, explosion_radius + additive_radius)
 
 func _process_world_update():
 	ticks_left -= 1

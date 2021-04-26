@@ -3,6 +3,10 @@ extends Node
 onready var parent = get_parent()
 onready var lines = parent.get_node("ScrollContainer/Lines")
 
+func _annulate_step(step_index):
+	var line = lines.get_child(step_index)
+	line.set_inactive()
+
 func _generate_step(step_index):
 	var line = lines.get_child(step_index)
 	line.set_inactive()
@@ -18,6 +22,8 @@ func _generate_step(step_index):
 	return line
 
 func generate_all_steps():
+	for step_index in range(0, 3):
+		_annulate_step(step_index)
 	for step_index in range(3, lines.get_child_count()):
 		_generate_step(step_index)
 

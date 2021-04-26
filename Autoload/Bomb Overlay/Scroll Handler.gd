@@ -11,12 +11,14 @@ var max_scroll = 0
 var current_scroll = 0.0
 
 func _ready():
+	parent.visible = true
 	yield(get_tree(), "idle_frame")
 	music.connect("on_beat", self, "process_beat")
 	scroll_container.scroll_vertical = 123456789
 	max_scroll = scroll_container.scroll_vertical
 	print("MAX SCROLL: ", max_scroll)
 	scroll_container.scroll_vertical = 0
+	parent.visible = false
 
 func _process(delta: float) -> void:
 	current_scroll += delta
