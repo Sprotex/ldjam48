@@ -513,12 +513,15 @@ stream = ExtResource( 5 )
 
 [node name="partA_01" type="AudioStreamPlayer" parent="AudioStreams/PartA"]
 stream = ExtResource( 7 )
+bus = "Bass"
 
 [node name="partA_02" type="AudioStreamPlayer" parent="AudioStreams/PartA"]
 stream = ExtResource( 15 )
+bus = "Bass"
 
 [node name="partA_03" type="AudioStreamPlayer" parent="AudioStreams/PartA"]
 stream = ExtResource( 20 )
+bus = "Bass"
 
 [node name="partA_04" type="AudioStreamPlayer" parent="AudioStreams/PartA"]
 stream = ExtResource( 17 )
@@ -541,15 +544,19 @@ stream = ExtResource( 24 )
 [node name="PartB" type="Node" parent="AudioStreams"]
 
 [node name="partB_01" type="AudioStreamPlayer" parent="AudioStreams/PartB"]
+bus = "Bass"
 
 [node name="partB_02" type="AudioStreamPlayer" parent="AudioStreams/PartB"]
 stream = ExtResource( 22 )
+bus = "Bass"
 
 [node name="partB_03" type="AudioStreamPlayer" parent="AudioStreams/PartB"]
 stream = ExtResource( 23 )
+bus = "Bass"
 
 [node name="partB_04" type="AudioStreamPlayer" parent="AudioStreams/PartB"]
 stream = ExtResource( 11 )
+bus = "Bass"
 
 [node name="partB_05" type="AudioStreamPlayer" parent="AudioStreams/PartB"]
 stream = ExtResource( 19 )
