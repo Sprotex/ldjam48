@@ -22,11 +22,9 @@ func _process_post_beat():
 	keyboard_handler.set_enabled(false)
 
 func process_success_input():
-	print("SUCCESS")
 	arrow_setter.generate_next_step()
 
 func process_fail_input():
-	print("FAIL")
 	visible = false
 
 func _on_Bomb_Overlay_visibility_changed() -> void:

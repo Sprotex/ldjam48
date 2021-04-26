@@ -2,11 +2,12 @@
 
 [ext_resource path="res://Actor Scenes/Player/Movement Input.gd" type="Script" id=1]
 [ext_resource path="res://Actor Scenes/Player/Movement Handler.gd" type="Script" id=2]
-[ext_resource path="res://Actor Scenes/Player/Bomb Handler.gd" type="Script" id=3]
+[ext_resource path="res://Actor Scenes/Enemy/Bomb Handler.gd" type="Script" id=3]
 [ext_resource path="res://Actor Scenes/Player/Collision Handler.gd" type="Script" id=4]
 [ext_resource path="res://Actor Scenes/Player/Register To Level Handler.gd" type="Script" id=5]
 [ext_resource path="res://Actor Scenes/Player/Bonus Handler.gd" type="Script" id=6]
 [ext_resource path="res://Actor Scenes/Player/Health.gd" type="Script" id=7]
+
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.805807, 0.855217, 0.827498 )

@@ -6,7 +6,7 @@ onready var constants = get_node("/root/Constants")
 onready var enviro_autoload = get_node("/root/EnviroAutoload")
 export var explosion_scene = preload("res://Actor Scenes/Bomb/Explosion Tile.tscn")
 
-var ticks_left = 0
+var ticks_left = 3
 var explosion_radius = 1
 
 func _ready() -> void:
@@ -31,5 +31,5 @@ func _explode():
 			if x*x + z*z <= explosion_radius * explosion_radius and enviro_autoload.enviro.is_spot_free_to_move(final_x, final_z):
 				var explosion = explosion_scene.instance()
 				explosion.translation = Vector3(final_x, 0, final_z)
-				enviro_autoload.enviro.add_child(x, z)
+				enviro_autoload.enviro.add_child(explosion)
 	bomb.queue_free()

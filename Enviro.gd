@@ -39,6 +39,8 @@ func _spawn_tile(x, z, tile):
 	call_deferred("add_child", tile_instance)
 	if tile == breakable_tiles[0] or tile == breakable_tiles[1]:
 		explodables.push_back(tile_instance)
+	if tile != floor_tile:
+		objects.push_back(tile_instance)
 	tile_instance.translation = Vector3(x * tile_size, 0, z * tile_size)
 	return tile_instance
 

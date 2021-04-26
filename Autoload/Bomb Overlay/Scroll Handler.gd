@@ -15,12 +15,12 @@ func _ready():
 	music.connect("on_beat", self, "process_beat")
 	scroll_container.scroll_vertical = 123456789
 	max_scroll = scroll_container.scroll_vertical
+	print("MAX SCROLL: ", max_scroll)
 	scroll_container.scroll_vertical = 0
 
 func _process(delta: float) -> void:
 	current_scroll += delta
 	var t = inverse_lerp(0, constants.beat_length, current_scroll)
-	#print("SCROLL: ", current_scroll)
 	scroll_container.scroll_vertical = round(t * max_scroll)
 
 func process_beat():

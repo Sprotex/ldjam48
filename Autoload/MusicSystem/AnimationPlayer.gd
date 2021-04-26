@@ -44,7 +44,7 @@ func decreaseIntensity():
 	if intensity > 0:
 		intensity -= 1
 	print(intensity)
-	
+
 func _input(event):
 	var just_pressed = event.is_pressed() and not event.is_echo()
 	if Input.is_key_pressed(KEY_KP_ADD) and just_pressed:
@@ -93,7 +93,7 @@ func update_tracks():
 	bar_count += 1
 	print(bar_count%4)
 	muteAll()
-	var play_crash = false
+	var _play_crash = false
 	
 	if current_intensity > 5:
 		double_time = 1
