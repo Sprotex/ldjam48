@@ -21,6 +21,8 @@ onready var change_part = false
 onready var parts = [partA, partB]
 onready var current_part = 0
 
+var double_time = 0
+
 signal on_beat
 
 # Called when the node enters the scene tree for the first time.
@@ -68,7 +70,7 @@ func toggleChangePart():
 	
 	
 func halfTime():	
-	half_time += 2
+	half_time += 1
 	half_time = half_time%2
 	pass
 
@@ -91,9 +93,15 @@ func update_tracks():
 	print(bar_count%4)
 	muteAll()
 	var play_crash = false
-	hihats[half_time].volume_db = 0.0
-	kicks[half_time].volume_db = 0.0
-	snares[half_time].volume_db = 0.0
+	
+	if current_intensity > 5:
+		double_time = 1
+	else:
+		double_time = 0
+	
+	hihats[double_time].volume_db = 0.0
+	kicks[double_time].volume_db = 0.0
+	snares[double_time].volume_db = 0.0
 	
 	
 	
