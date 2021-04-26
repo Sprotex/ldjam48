@@ -43,6 +43,6 @@ shape = SubResource( 1 )
 
 [node name="BOOM_GUY" parent="." instance=ExtResource( 8 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
-[connection signal="on_input_pressed" from="Movement Input" to="Bomb Handler" method="_on_Movement_Input_on_input_pressed"]
 [connection signal="on_input_pressed" from="Movement Input" to="Movement Handler" method="_on_Movement_Input_on_input_pressed"]
+[connection signal="on_input_pressed" from="Movement Input" to="Bomb Handler" method="_on_Movement_Input_on_input_pressed"]
 [connection signal="area_entered" from="Player Area" to="Collision Handler" method="_on_Area_area_entered"]
