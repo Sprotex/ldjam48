@@ -1,7 +1,7 @@
 extends Spatial
 
-func play_idle():
-	pass
+onready var animator = get_node("AnimationPlayer")
 
 func play_attack():
-	pass
+	animator.play("monster_attack")
+	animator.queue("monster_idle")

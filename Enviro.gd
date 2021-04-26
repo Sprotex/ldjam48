@@ -37,7 +37,7 @@ func _spawn_enemy(x, z):
 func _spawn_tile(x, z, tile):
 	var tile_instance = tile.instance()
 	call_deferred("add_child", tile_instance)
-	if tile == breakable_tiles[0] or tile == breakable_tiles[1]:
+	if breakable_tiles.has(tile):
 		explodables.push_back(tile_instance)
 	if tile != floor_tile and tile != exit_tile:
 		objects.push_back(tile_instance)
@@ -105,7 +105,6 @@ func _generate_enemy_positions():
 func generate_objects():
 	this_level_exit_x = - 1 - (randi() % (depth - 2))
 	_generate_enemy_positions()
-	print("Maze size: ", width, " ", depth)
 	for x in width:
 		for z in depth:
 			_generate_tile(-x, z)

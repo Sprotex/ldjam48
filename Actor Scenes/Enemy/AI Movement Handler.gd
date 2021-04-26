@@ -7,6 +7,7 @@ onready var bomb_overlay = get_node("/root/BombOverlay")
 onready var world_updater = get_node("/root/WorldUpdater")
 onready var enviro_autoload = get_node("/root/EnviroAutoload")
 onready var health_manager = get_node("/root/HealthManager")
+onready var animator = root.get_node("NOMSTER")
 var player
 var random_movement_chance = 0.3
 var ignore_next_post_beat = false
@@ -36,6 +37,7 @@ func _move(x, z):
 	var final_z = root.translation.z + z * tile_size
 	if player.translation.x == final_x and player.translation.z == final_z:
 		health_manager.take_damage()
+		animator.play_attack()
 	elif enviro_autoload.enviro.is_spot_free_to_move(final_x, final_z):
 		root.translation = Vector3(final_x, 0, final_z)
 

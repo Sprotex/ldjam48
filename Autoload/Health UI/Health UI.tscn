@@ -21,7 +21,6 @@ __meta__ = {
 margin_right = 1516.0
 margin_bottom = 720.0
 mouse_filter = 2
-alignment = 2
 
 [node name="Heart 1" type="TextureRect" parent="HBoxContainer"]
 margin_right = 300.0

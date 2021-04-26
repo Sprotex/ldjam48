@@ -3,6 +3,7 @@ extends Node
 onready var root = get_parent()
 onready var bomb_scene = preload("res://Actor Scenes/Bomb/Bomb.tscn")
 onready var enviro_autoload = get_node("/root/EnviroAutoload")
+onready var animation_handler = root.get_node("BOOM_GUY")
 
 func place_bomb():
 	var bomb_instance = bomb_scene.instance()

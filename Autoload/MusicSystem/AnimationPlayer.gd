@@ -32,7 +32,7 @@ func onBeat():
 	send_signal = true
 	
 func increaseIntensity():
-	if intensity < 89:
+	if intensity < len(current_intensity_arr) - 1:
 		intensity += 1
 	
 func decreaseIntensity():
@@ -42,8 +42,7 @@ func decreaseIntensity():
 func mute(array):
 	for i in array:
 		i.volume_db = -60.0
-	
-		
+
 func toggleChangePart():
 	if change_part:
 		change_part = false
@@ -52,7 +51,7 @@ func toggleChangePart():
 
 func halfTime():	
 	half_time += 1
-	half_time = half_time%2
+	half_time = half_time % 2
 	pass
 
 func muteAll():
@@ -71,7 +70,7 @@ func unmute(part):
 func update_tracks():
 	current_intensity = current_intensity_arr[intensity]
 	bar_count += 1
-	print(bar_count%4)
+	print(bar_count % 4)
 	muteAll()
 	var _play_crash = false
 	
@@ -84,11 +83,9 @@ func update_tracks():
 	kicks[double_time].volume_db = 0.0
 	snares[double_time].volume_db = 0.0
 	
-	
-	
-	if change_part and bar_count%4 == 1:
+	var unmute_index = current_part % 2
+	if change_part and bar_count % 4 == 1:
 		current_part += 1
-		unmute(parts[current_part%2])		
+		unmute_index = current_part % 2
 		toggleChangePart()
-	else:
-		unmute(parts[current_part%2])
+	unmute(parts[unmute_index])
