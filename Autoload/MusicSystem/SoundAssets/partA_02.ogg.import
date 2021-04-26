@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/partA_02.ogg-97bae2fada652944e31a196e3c8628a3.oggstr"
+
+[deps]
+
+source_file="res://Autoload/MusicSystem/SoundAssets/partA_02.ogg"
+dest_files=[ "res://.import/partA_02.ogg-97bae2fada652944e31a196e3c8628a3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,15 +1,23 @@
 extends AnimationPlayer
 
 onready var hihats = get_node("../AudioStreams/HH").get_children()
-onready var kicks = get_node("../AudioStreams/KD").get_children()
-onready var snares = get_node("../AudioStreams/SN").get_children()
-onready var root_notes = get_node("../AudioStreams/Chord").get_children()
+onready var kicks = get_node("../AudioStreams/Kick").get_children()
+onready var snares = get_node("../AudioStreams/Snare").get_children()
+
+onready var partA = get_node("../AudioStreams/PartA").get_children()
+onready var partB = get_node("../AudioStreams/PartB").get_children()
+onready var crash = get_node("../AudioStreams/Crash").get_children()
+
+
 onready var current_intensity = 0
 onready var intensity = 0
 
 onready var bar_count = 0
+onready var first_part = true
+onready var half_time = 0
 
-onready var anim_tree = get_node("../AnimationTree")
+var send_signal = true
+onready var current_part_a = true
 
 
 signal on_beat
@@ -20,10 +28,12 @@ func _ready():
 	pass # Replace with function body.
 
 func onBeat():
-	emit_signal("on_beat")
+	if send_signal:
+		emit_signal("on_beat")
+	send_signal = true
 	
 func increaseIntensity():
-	if intensity < 4:
+	if intensity < 9:
 		intensity += 1
 	print(intensity)
 func decreaseIntensity():
@@ -38,53 +48,53 @@ func _input(event):
 	if Input.is_key_pressed(KEY_KP_SUBTRACT) and just_pressed:
 		decreaseIntensity()
 	if Input.is_key_pressed(KEY_P) and just_pressed:
-		var state_machine = anim_tree.get("parameters/StateMachine/playback")
-		state_machine.travel("drumTu")
+		changePart()
+	if Input.is_key_pressed(KEY_L) and just_pressed:
+		halfTime()
+	if Input.is_key_pressed(KEY_M) and just_pressed:
+		print(current_animation) 
+
+func mute(array):
+	for i in array:
+		i.volume_db = -60.0
+func unmute(array):
+	for i in array:
+		i.volume_db = 0.0	
+		
+func changePart():
+	if current_part_a:
+		current_part_a = false
+	else:
+		current_part_a = true
+	
+func halfTime():	
+	half_time += 2
+	half_time = half_time%2
+	pass
+
+func muteAll():
+	mute(hihats)
+	mute(kicks)
+	mute(snares)
+	mute(partA)
+	mute(partB)	
+	mute(crash)
 	
 
-	
 	
 func update_tracks():
-	print("player")
-	var selected_root_note = bar_count%4
 	current_intensity = intensity
 	bar_count += 1
-	print(bar_count)
-	print(current_intensity)
+	print(bar_count%4)
+	muteAll()
+	var play_crash = false
+	hihats[half_time].volume_db = 0.0
+	kicks[half_time].volume_db = 0.0
+	snares[half_time].volume_db = 0.0
 	
 	
-	for hihat in hihats:
-		hihat.volume_db = -60.0		
-	for kick in kicks:
-		kick.volume_db = -60.0		
-	for snare in snares:
-		snare.volume_db = -60.0
-	for root in root_notes:
-		root.volume_db = -60.0
-		
-	
-	
-	hihats[current_intensity%2].volume_db = 0.0
-	kicks[current_intensity%2].volume_db = 0.0
-	snares[current_intensity].volume_db = 0.0
-	
-	print(hihats[current_intensity%2].name)
-	 
-	root_notes[selected_root_note].volume_db = 0.0
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	for i in range(current_intensity):
+		if current_part_a:
+			partA[i].volume_db = 0.0
+		else:
+			partB[i].volume_db = 0.0

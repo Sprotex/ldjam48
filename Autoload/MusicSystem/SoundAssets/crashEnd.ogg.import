@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/crashEnd.ogg-1903db19f55cc8212233e33d15e6992c.oggstr"
+
+[deps]
+
+source_file="res://Autoload/MusicSystem/SoundAssets/crashEnd.ogg"
+dest_files=[ "res://.import/crashEnd.ogg-1903db19f55cc8212233e33d15e6992c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

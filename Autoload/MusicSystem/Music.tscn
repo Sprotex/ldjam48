@@ -1,25 +1,35 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=28 format=2]
 
-[ext_resource path="res://Autoload/MusicSystem/SoundAssets/hihat2.ogg" type="AudioStream" id=1]
-[ext_resource path="res://Autoload/MusicSystem/SoundAssets/snare5.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/kick_01.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/kick_02.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Autoload/MusicSystem/AnimationPlayer.gd" type="Script" id=3]
-[ext_resource path="res://Autoload/MusicSystem/SoundAssets/snare1.ogg" type="AudioStream" id=4]
-[ext_resource path="res://Autoload/MusicSystem/SoundAssets/snare3.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Autoload/MusicSystem/SoundAssets/snare2.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Autoload/MusicSystem/SoundAssets/hihat1.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Autoload/MusicSystem/SoundAssets/snare4.ogg" type="AudioStream" id=8]
-[ext_resource path="res://Autoload/MusicSystem/SoundAssets/kick4_4.ogg" type="AudioStream" id=9]
-[ext_resource path="res://Autoload/MusicSystem/SoundAssets/kick2_4.ogg" type="AudioStream" id=10]
-[ext_resource path="res://Autoload/MusicSystem/SoundAssets/bass_root_G.ogg" type="AudioStream" id=11]
-[ext_resource path="res://Autoload/MusicSystem/SoundAssets/arp_01.ogg" type="AudioStream" id=12]
-[ext_resource path="res://Autoload/MusicSystem/SoundAssets/bass_root_C.ogg" type="AudioStream" id=13]
-[ext_resource path="res://Autoload/MusicSystem/SoundAssets/bass_root_Ds.ogg" type="AudioStream" id=14]
-[ext_resource path="res://Autoload/MusicSystem/SoundAssets/bass_01.ogg" type="AudioStream" id=15]
-[ext_resource path="res://Autoload/MusicSystem/SoundAssets/bass_root_F.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/snare_01.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/hh_02.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/snare_02.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/partA_01.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/partA_05.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/partB_06.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/partB_07.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/partB_03.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/partB_05.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/hh_01.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/partA_08.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/partA_02.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/partA_06.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/partA_04.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/partB_08.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/partB_04.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/partA_03.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/partA_07.ogg" type="AudioStream" id=21]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/partB_01.ogg" type="AudioStream" id=22]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/partB_02.ogg" type="AudioStream" id=23]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/partA_09.ogg" type="AudioStream" id=24]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/crashEnd.ogg" type="AudioStream" id=25]
+[ext_resource path="res://Autoload/MusicSystem/SoundAssets/crashStart.ogg" type="AudioStream" id=26]
 
 [sub_resource type="Animation" id=1]
-resource_name = "DrumTrack"
-length = 1.6
+resource_name = "PartA"
+length = 6.4
 loop = true
 tracks/0/type = "method"
 tracks/0/path = NodePath("AnimationPlayer")
@@ -28,11 +38,44 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( -0.1, 0, 0.4, 0.8, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.6, 4, 4.4, 4.8, 5.2, 5.6, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
-"args": [ "onBeat" ],
-"method": "emit_signal"
+"args": [  ],
+"method": "onBeat"
+}, {
+"args": [  ],
+"method": "onBeat"
+}, {
+"args": [  ],
+"method": "onBeat"
+}, {
+"args": [  ],
+"method": "onBeat"
+}, {
+"args": [  ],
+"method": "onBeat"
+}, {
+"args": [  ],
+"method": "onBeat"
+}, {
+"args": [  ],
+"method": "onBeat"
+}, {
+"args": [  ],
+"method": "onBeat"
+}, {
+"args": [  ],
+"method": "onBeat"
+}, {
+"args": [  ],
+"method": "onBeat"
+}, {
+"args": [  ],
+"method": "onBeat"
+}, {
+"args": [  ],
+"method": "onBeat"
 }, {
 "args": [  ],
 "method": "onBeat"
@@ -47,36 +90,42 @@ tracks/0/keys = {
 "method": "onBeat"
 } ]
 }
-tracks/1/type = "audio"
-tracks/1/path = NodePath("AudioStreams/HH/hh_01")
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 7 )
-} ],
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0, 1.6, 3.2, 4.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "update_tracks"
+}, {
+"args": [  ],
+"method": "update_tracks"
+}, {
+"args": [  ],
+"method": "update_tracks"
+}, {
+"args": [  ],
+"method": "update_tracks"
+} ]
 }
-tracks/2/type = "audio"
-tracks/2/path = NodePath("AudioStreams/HH/hh_02")
+tracks/2/type = "method"
+tracks/2/path = NodePath("AnimationPlayer")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 1 )
-} ],
-"times": PoolRealArray( 0 )
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
 }
 tracks/3/type = "audio"
-tracks/3/path = NodePath("AudioStreams/SN/sn_01")
+tracks/3/path = NodePath("AudioStreams/Kick/kick_01")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -85,12 +134,12 @@ tracks/3/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 4 )
+"stream": ExtResource( 1 )
 } ],
 "times": PoolRealArray( 0 )
 }
 tracks/4/type = "audio"
-tracks/4/path = NodePath("AudioStreams/SN/sn_02")
+tracks/4/path = NodePath("AudioStreams/Kick/kick_02")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -99,12 +148,12 @@ tracks/4/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 6 )
+"stream": ExtResource( 2 )
 } ],
 "times": PoolRealArray( 0 )
 }
 tracks/5/type = "audio"
-tracks/5/path = NodePath("AudioStreams/SN/sn_03")
+tracks/5/path = NodePath("AudioStreams/Snare/snare_01")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -113,12 +162,12 @@ tracks/5/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 5 )
+"stream": ExtResource( 4 )
 } ],
 "times": PoolRealArray( 0 )
 }
 tracks/6/type = "audio"
-tracks/6/path = NodePath("AudioStreams/SN/sn_04")
+tracks/6/path = NodePath("AudioStreams/Snare/snare_02")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -127,12 +176,12 @@ tracks/6/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 8 )
+"stream": ExtResource( 6 )
 } ],
 "times": PoolRealArray( 0 )
 }
 tracks/7/type = "audio"
-tracks/7/path = NodePath("AudioStreams/SN/sn_05")
+tracks/7/path = NodePath("AudioStreams/HH/hihat_01")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -141,12 +190,12 @@ tracks/7/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 2 )
+"stream": ExtResource( 13 )
 } ],
 "times": PoolRealArray( 0 )
 }
 tracks/8/type = "audio"
-tracks/8/path = NodePath("AudioStreams/KD/kd_01")
+tracks/8/path = NodePath("AudioStreams/HH/hihat_02")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -155,12 +204,12 @@ tracks/8/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 10 )
+"stream": ExtResource( 5 )
 } ],
 "times": PoolRealArray( 0 )
 }
 tracks/9/type = "audio"
-tracks/9/path = NodePath("AudioStreams/KD/kd_02")
+tracks/9/path = NodePath("AudioStreams/PartA/partA_01")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -169,12 +218,12 @@ tracks/9/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 9 )
+"stream": ExtResource( 7 )
 } ],
 "times": PoolRealArray( 0 )
 }
 tracks/10/type = "audio"
-tracks/10/path = NodePath("AudioStreams/ARP/arp_01")
+tracks/10/path = NodePath("AudioStreams/PartA/partA_02")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -183,12 +232,12 @@ tracks/10/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 12 )
+"stream": ExtResource( 15 )
 } ],
 "times": PoolRealArray( 0 )
 }
 tracks/11/type = "audio"
-tracks/11/path = NodePath("AudioStreams/Bass/bass_01")
+tracks/11/path = NodePath("AudioStreams/PartA/partA_03")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -197,12 +246,12 @@ tracks/11/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 15 )
+"stream": ExtResource( 20 )
 } ],
 "times": PoolRealArray( 0 )
 }
 tracks/12/type = "audio"
-tracks/12/path = NodePath("AudioStreams/Chord/root_C")
+tracks/12/path = NodePath("AudioStreams/PartA/partA_04")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -211,12 +260,12 @@ tracks/12/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 13 )
+"stream": ExtResource( 17 )
 } ],
 "times": PoolRealArray( 0 )
 }
 tracks/13/type = "audio"
-tracks/13/path = NodePath("AudioStreams/Chord/root_F")
+tracks/13/path = NodePath("AudioStreams/PartA/partA_05")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -225,12 +274,12 @@ tracks/13/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 16 )
+"stream": ExtResource( 8 )
 } ],
 "times": PoolRealArray( 0 )
 }
 tracks/14/type = "audio"
-tracks/14/path = NodePath("AudioStreams/Chord/root_Ds")
+tracks/14/path = NodePath("AudioStreams/PartA/partA_06")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -239,12 +288,12 @@ tracks/14/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 14 )
+"stream": ExtResource( 16 )
 } ],
 "times": PoolRealArray( 0 )
 }
 tracks/15/type = "audio"
-tracks/15/path = NodePath("AudioStreams/Chord/root_G")
+tracks/15/path = NodePath("AudioStreams/PartA/partA_07")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -253,36 +302,125 @@ tracks/15/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 11 )
+"stream": ExtResource( 21 )
 } ],
 "times": PoolRealArray( 0 )
 }
-tracks/16/type = "method"
-tracks/16/path = NodePath("AnimationPlayer")
+tracks/16/type = "audio"
+tracks/16/path = NodePath("AudioStreams/PartA/partA_08")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "update_tracks"
-} ]
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 14 )
+} ],
+"times": PoolRealArray( 0 )
 }
-
-[sub_resource type="Animation" id=2]
-resource_name = "drumTu"
-length = 1.6
-loop = true
-tracks/0/type = "audio"
-tracks/0/path = NodePath("AudioStreams/KD/kd_02")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
+tracks/17/type = "audio"
+tracks/17/path = NodePath("AudioStreams/PartA/partA_09")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 24 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/18/type = "audio"
+tracks/18/path = NodePath("AudioStreams/PartB/partB_01")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
+tracks/19/type = "audio"
+tracks/19/path = NodePath("AudioStreams/PartB/partB_02")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 22 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/20/type = "audio"
+tracks/20/path = NodePath("AudioStreams/PartB/partB_03")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 23 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/21/type = "audio"
+tracks/21/path = NodePath("AudioStreams/PartB/partB_04")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 11 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/22/type = "audio"
+tracks/22/path = NodePath("AudioStreams/PartB/partB_05")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 19 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/23/type = "audio"
+tracks/23/path = NodePath("AudioStreams/PartB/partB_06")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 12 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/24/type = "audio"
+tracks/24/path = NodePath("AudioStreams/PartB/partB_07")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -290,85 +428,144 @@ tracks/0/keys = {
 } ],
 "times": PoolRealArray( 0 )
 }
+tracks/25/type = "audio"
+tracks/25/path = NodePath("AudioStreams/PartB/partB_08")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/26/type = "audio"
+tracks/26/path = NodePath("AudioStreams/PartB/partB_09")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 18 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/27/type = "audio"
+tracks/27/path = NodePath("AudioStreams/Crash/crash")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 25 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 26 )
+} ],
+"times": PoolRealArray( 0, 4.8 )
+}
 
 [node name="Spatial" type="Spatial"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "DrumTrack"
-anims/DrumTrack = SubResource( 1 )
-anims/drumTu = SubResource( 2 )
+autoplay = "PartA"
+method_call_mode = 1
+anims/PartA = SubResource( 1 )
 script = ExtResource( 3 )
 
 [node name="AudioStreams" type="Node" parent="."]
 
+[node name="Kick" type="Node" parent="AudioStreams"]
+
+[node name="kick_01" type="AudioStreamPlayer" parent="AudioStreams/Kick"]
+stream = ExtResource( 1 )
+
+[node name="kick_02" type="AudioStreamPlayer" parent="AudioStreams/Kick"]
+stream = ExtResource( 2 )
+
+[node name="Snare" type="Node" parent="AudioStreams"]
+
+[node name="snare_01" type="AudioStreamPlayer" parent="AudioStreams/Snare"]
+stream = ExtResource( 4 )
+
+[node name="snare_02" type="AudioStreamPlayer" parent="AudioStreams/Snare"]
+stream = ExtResource( 6 )
+
 [node name="HH" type="Node" parent="AudioStreams"]
 
-[node name="hh_01" type="AudioStreamPlayer" parent="AudioStreams/HH"]
-stream = ExtResource( 7 )
-bus = "Highhat"
-
-[node name="hh_02" type="AudioStreamPlayer" parent="AudioStreams/HH"]
-stream = ExtResource( 1 )
-bus = "Highhat"
-
-[node name="SN" type="Node" parent="AudioStreams"]
-
-[node name="sn_01" type="AudioStreamPlayer" parent="AudioStreams/SN"]
-stream = ExtResource( 4 )
-bus = "Snare"
-
-[node name="sn_02" type="AudioStreamPlayer" parent="AudioStreams/SN"]
-stream = ExtResource( 6 )
-bus = "Snare"
-
-[node name="sn_03" type="AudioStreamPlayer" parent="AudioStreams/SN"]
-stream = ExtResource( 5 )
-bus = "Snare"
-
-[node name="sn_04" type="AudioStreamPlayer" parent="AudioStreams/SN"]
-stream = ExtResource( 8 )
-bus = "Snare"
-
-[node name="sn_05" type="AudioStreamPlayer" parent="AudioStreams/SN"]
-stream = ExtResource( 2 )
-bus = "Snare"
-
-[node name="KD" type="Node" parent="AudioStreams"]
-
-[node name="kd_01" type="AudioStreamPlayer" parent="AudioStreams/KD"]
-stream = ExtResource( 10 )
-bus = "Kick"
-
-[node name="kd_02" type="AudioStreamPlayer" parent="AudioStreams/KD"]
-stream = ExtResource( 9 )
-bus = "Kick"
-
-[node name="ARP" type="Node" parent="AudioStreams"]
-
-[node name="arp_01" type="AudioStreamPlayer" parent="AudioStreams/ARP"]
-stream = ExtResource( 12 )
-bus = "Arp"
-
-[node name="Bass" type="Node" parent="AudioStreams"]
-
-[node name="bass_01" type="AudioStreamPlayer" parent="AudioStreams/Bass"]
-stream = ExtResource( 15 )
-bus = "Bass"
-
-[node name="Chord" type="Node" parent="AudioStreams"]
-
-[node name="root_C" type="AudioStreamPlayer" parent="AudioStreams/Chord"]
+[node name="hihat_01" type="AudioStreamPlayer" parent="AudioStreams/HH"]
 stream = ExtResource( 13 )
-bus = "Root"
 
-[node name="root_F" type="AudioStreamPlayer" parent="AudioStreams/Chord"]
+[node name="hihat_02" type="AudioStreamPlayer" parent="AudioStreams/HH"]
+stream = ExtResource( 5 )
+
+[node name="PartA" type="Node" parent="AudioStreams"]
+
+[node name="partA_01" type="AudioStreamPlayer" parent="AudioStreams/PartA"]
+stream = ExtResource( 7 )
+
+[node name="partA_02" type="AudioStreamPlayer" parent="AudioStreams/PartA"]
+stream = ExtResource( 15 )
+
+[node name="partA_03" type="AudioStreamPlayer" parent="AudioStreams/PartA"]
+stream = ExtResource( 20 )
+
+[node name="partA_04" type="AudioStreamPlayer" parent="AudioStreams/PartA"]
+stream = ExtResource( 17 )
+
+[node name="partA_05" type="AudioStreamPlayer" parent="AudioStreams/PartA"]
+stream = ExtResource( 8 )
+
+[node name="partA_06" type="AudioStreamPlayer" parent="AudioStreams/PartA"]
 stream = ExtResource( 16 )
-bus = "Root"
 
-[node name="root_Ds" type="AudioStreamPlayer" parent="AudioStreams/Chord"]
+[node name="partA_07" type="AudioStreamPlayer" parent="AudioStreams/PartA"]
+stream = ExtResource( 21 )
+
+[node name="partA_08" type="AudioStreamPlayer" parent="AudioStreams/PartA"]
 stream = ExtResource( 14 )
-bus = "Root"
 
-[node name="root_G" type="AudioStreamPlayer" parent="AudioStreams/Chord"]
+[node name="partA_09" type="AudioStreamPlayer" parent="AudioStreams/PartA"]
+stream = ExtResource( 24 )
+
+[node name="PartB" type="Node" parent="AudioStreams"]
+
+[node name="partB_01" type="AudioStreamPlayer" parent="AudioStreams/PartB"]
+
+[node name="partB_02" type="AudioStreamPlayer" parent="AudioStreams/PartB"]
+stream = ExtResource( 22 )
+
+[node name="partB_03" type="AudioStreamPlayer" parent="AudioStreams/PartB"]
+stream = ExtResource( 23 )
+
+[node name="partB_04" type="AudioStreamPlayer" parent="AudioStreams/PartB"]
 stream = ExtResource( 11 )
-bus = "Root"
+
+[node name="partB_05" type="AudioStreamPlayer" parent="AudioStreams/PartB"]
+stream = ExtResource( 19 )
+
+[node name="partB_06" type="AudioStreamPlayer" parent="AudioStreams/PartB"]
+stream = ExtResource( 12 )
+
+[node name="partB_07" type="AudioStreamPlayer" parent="AudioStreams/PartB"]
+stream = ExtResource( 9 )
+
+[node name="partB_08" type="AudioStreamPlayer" parent="AudioStreams/PartB"]
+stream = ExtResource( 10 )
+
+[node name="partB_09" type="AudioStreamPlayer" parent="AudioStreams/PartB"]
+stream = ExtResource( 18 )
+
+[node name="Crash" type="Node" parent="AudioStreams"]
+
+[node name="crash" type="AudioStreamPlayer" parent="AudioStreams/Crash"]
