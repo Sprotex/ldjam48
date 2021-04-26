@@ -10,6 +10,7 @@ material = ExtResource( 1 )
 
 [node name="Particles Red" type="CPUParticles" parent="."]
 amount = 100
+lifetime = 0.4
 explosiveness = 0.85
 randomness = 1.0
 lifetime_randomness = 1.0
@@ -30,6 +31,7 @@ hue_variation_random = 1.0
 
 [node name="Particles Yellow" type="CPUParticles" parent="."]
 amount = 50
+lifetime = 0.4
 explosiveness = 0.85
 randomness = 1.0
 lifetime_randomness = 1.0
@@ -49,6 +51,7 @@ color = Color( 0.815686, 1, 0, 1 )
 hue_variation_random = 1.0
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
 one_shot = true
 autostart = true
 script = ExtResource( 2 )

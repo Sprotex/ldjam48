@@ -31,12 +31,15 @@ func _explode():
 	var bomb = get_parent()
 	var width = explosion_radius
 	var depth = explosion_radius
-	for x in width:
-		for z in depth:
+	for x in range(-width, width + 1):
+		for z in range(-depth, depth + 1):
 			var final_x = bomb.translation.x + x * tile_size
 			var final_z = bomb.translation.z + z * tile_size
-			if x*x + z*z <= explosion_radius * explosion_radius and enviro_autoload.enviro.is_spot_free_to_move(final_x, final_z):
+			if x*x + z*z <= explosion_radius * explosion_radius and enviro_autoload.enviro.is_spot_explodable_or_free(final_x, final_z):
 				var explosion = explosion_scene.instance()
 				explosion.translation = Vector3(final_x, 0, final_z)
 				enviro_autoload.enviro.add_child(explosion)
+				var explodable = enviro_autoload.enviro.get_explodable_object(final_x, final_z)
+				if explodable != null:
+					explodable.queue_free()
 	bomb.queue_free()

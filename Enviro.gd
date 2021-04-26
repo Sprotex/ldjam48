@@ -39,7 +39,7 @@ func _spawn_tile(x, z, tile):
 	call_deferred("add_child", tile_instance)
 	if tile == breakable_tiles[0] or tile == breakable_tiles[1]:
 		explodables.push_back(tile_instance)
-	if tile != floor_tile:
+	if tile != floor_tile and tile != exit_tile:
 		objects.push_back(tile_instance)
 	tile_instance.translation = Vector3(x * tile_size, 0, z * tile_size)
 	return tile_instance
@@ -98,14 +98,26 @@ func generate_objects():
 		for z in depth:
 			_generate_tile(-x, z)
 
-func is_spot_explodable(final_x, final_z):
+func get_explodable_object(final_x, final_z):
 	for object in explodables:
+		if object == null:
+			continue
 		if object.translation.x == final_x and object.translation.z == final_z:
-			return true
-	return false
+			return object
+	return null
+
+func is_spot_explodable_or_free(final_x, final_z):
+	for object in objects:
+		if object == null:
+			continue
+		if object.translation.x == final_x and object.translation.z == final_z and not explodables.has(object):
+			return false
+	return true
 
 func is_spot_free_to_move(final_x, final_z):
 	for object in objects:
+		if object == null:
+			continue
 		if object.translation.x == final_x and object.translation.z == final_z:
 			return false
 	return true
