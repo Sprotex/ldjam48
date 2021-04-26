@@ -33,6 +33,7 @@ TickSynchronizer="*res://Autoload/Tick Synchronizer/Tick Synchronizer.tscn"
 LevelHandler="*res://Autoload/Level Handler/Level Handler.tscn"
 HealthUi="*res://Autoload/Health UI/Health UI.tscn"
 MarkerUi="*res://Autoload/Marker UI/Marker UI.tscn"
+WorldUpdater="*res://Autoload/World Updater/World Updater.tscn"
 
 [input]
 

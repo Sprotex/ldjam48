@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Autoload/World Updater/World Updater.gd" type="Script" id=1]
+
+[node name="World Updater" type="Node"]
+script = ExtResource( 1 )

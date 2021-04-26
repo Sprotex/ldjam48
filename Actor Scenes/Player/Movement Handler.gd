@@ -3,8 +3,11 @@ extends Node
 onready var root = get_parent()
 onready var movement_scaling = get_node("/root/Constants").tile_size
 
+signal on_player_move
+
 func move(x_diff, y_diff):
 	root.translate(Vector3(x_diff * movement_scaling, 0, y_diff * movement_scaling))
+	emit_signal("on_player_move")
 
 func _on_Movement_Input_on_input_pressed(action_mapping) -> void:
 	if action_mapping == "ui_left":

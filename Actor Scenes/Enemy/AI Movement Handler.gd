@@ -4,7 +4,7 @@ onready var root = get_parent()
 onready var tile_size = get_node("/root/Constants").tile_size
 onready var constants = get_node("/root/Constants")
 onready var bomb_overlay = get_node("/root/BombOverlay")
-onready var tick_synchronizer = get_node("/root/TickSynchronizer")
+onready var world_updater = get_node("/root/WorldUpdater")
 var player
 var random_movement_chance = 0.3
 var ignore_next_post_beat = false
@@ -13,8 +13,7 @@ func set_player(_player):
 	player = _player
 
 func _ready() -> void:
-	tick_synchronizer.connect("on_post_beat", self, "_process_post_beat")
-	print("AI connecting to tick sync ", tick_synchronizer)
+	world_updater.connect("on_world_update", self, "_process_move")
 	randomize()
 
 func _move_to_player():
@@ -43,21 +42,8 @@ func _move_random():
 		_move(0, signum)
 
 func _process_move():
+	print("ENEMY MOVE")
 	if randf() >= random_movement_chance:
 		_move_to_player()
 	else:
 		_move_random()
-
-func _process_player_movement():
-	if bomb_overlay.visible:
-		return
-	ignore_next_post_beat = true
-	_process_move()
-
-func _process_post_beat():
-	if bomb_overlay.visible:
-		return
-	if ignore_next_post_beat:
-		ignore_next_post_beat = false
-		return
-	_process_move()
