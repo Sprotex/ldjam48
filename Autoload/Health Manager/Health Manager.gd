@@ -18,4 +18,4 @@ func add_heart():
 	health_ui.set_heart_count(current_health)
 
 func game_over():
-	print("GAMEOVER")
+	get_node("/root/LevelHandler").game_over()

@@ -11,6 +11,7 @@ anchor_bottom = 0.25
 margin_right = 645.0
 margin_bottom = 450.0
 rect_scale = Vector2( 0.25, 0.25 )
+mouse_filter = 2
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": true
@@ -18,14 +19,16 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_right = 1516.0
-margin_bottom = 600.0
+margin_bottom = 720.0
+mouse_filter = 2
 alignment = 2
 
 [node name="Heart 1" type="TextureRect" parent="HBoxContainer"]
 margin_right = 300.0
-margin_bottom = 600.0
+margin_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource( 3 )
 stretch_mode = 5
 script = ExtResource( 1 )
@@ -38,9 +41,10 @@ post_beat_set_texture = ExtResource( 3 )
 [node name="Heart 2" type="TextureRect" parent="HBoxContainer"]
 margin_left = 304.0
 margin_right = 604.0
-margin_bottom = 600.0
+margin_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource( 3 )
 stretch_mode = 5
 script = ExtResource( 1 )
@@ -53,9 +57,10 @@ post_beat_set_texture = ExtResource( 3 )
 [node name="Heart 3" type="TextureRect" parent="HBoxContainer"]
 margin_left = 608.0
 margin_right = 908.0
-margin_bottom = 600.0
+margin_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource( 3 )
 stretch_mode = 5
 script = ExtResource( 1 )
@@ -68,9 +73,10 @@ post_beat_set_texture = ExtResource( 3 )
 [node name="Heart 4" type="TextureRect" parent="HBoxContainer"]
 margin_left = 912.0
 margin_right = 1212.0
-margin_bottom = 600.0
+margin_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource( 3 )
 stretch_mode = 5
 script = ExtResource( 1 )
@@ -83,9 +89,10 @@ post_beat_set_texture = ExtResource( 3 )
 [node name="Heart 5" type="TextureRect" parent="HBoxContainer"]
 margin_left = 1216.0
 margin_right = 1516.0
-margin_bottom = 600.0
+margin_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource( 3 )
 stretch_mode = 5
 script = ExtResource( 1 )

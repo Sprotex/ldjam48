@@ -7,6 +7,7 @@
 [node name="Marker UI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -19,6 +20,7 @@ margin_top = -100.0
 margin_right = 4498.0
 margin_bottom = 112.0
 rect_scale = Vector2( 0.5, 0.5 )
+mouse_filter = 2
 scroll_vertical_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -27,6 +29,7 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
 margin_right = 4796.0
 margin_bottom = 200.0
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/HBoxContainer"]
 margin_right = 296.0
@@ -258,6 +261,7 @@ margin_top = -100.0
 margin_right = 70.0
 margin_bottom = 100.0
 rect_scale = Vector2( 0.5, 0.5 )
+mouse_filter = 2
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
