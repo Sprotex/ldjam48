@@ -17,20 +17,28 @@ onready var tree_root = get_tree().get_root()
 onready var tile_size = get_node("/root/Constants").tile_size
 onready var player = get_node(player_path)
 onready var level_handler = get_node("/root/LevelHandler")
+onready var explodables = []
+onready var objects = []
 var this_level_exit_x = 0
 var this_level_enemy_positions = []
 
 func _ready() -> void:
 	randomize()
 	level_handler.register_enviro(self)
-
+	var enviro_autoload = get_node("/root/EnviroAutoload")
+	enviro_autoload.register_enviro(self)
+	
 func _spawn_enemy(x, z):
 	var enemy_instance = _spawn_tile(x, z, enemy)
+	explodables.push_back(enemy_instance)
+	objects.push_back(enemy_instance)
 	enemy_instance.get_node("Movement Handler").set_player(player)
 
 func _spawn_tile(x, z, tile):
 	var tile_instance = tile.instance()
 	call_deferred("add_child", tile_instance)
+	if tile == breakable_tiles[0] or tile == breakable_tiles[1]:
+		explodables.push_back(tile_instance)
 	tile_instance.translation = Vector3(x * tile_size, 0, z * tile_size)
 	return tile_instance
 
@@ -87,3 +95,15 @@ func generate_objects():
 	for x in width:
 		for z in depth:
 			_generate_tile(-x, z)
+
+func is_spot_explodable(final_x, final_z):
+	for object in explodables:
+		if object.translation.x == final_x and object.translation.z == final_z:
+			return true
+	return false
+
+func is_spot_free_to_move(final_x, final_z):
+	for object in objects:
+		if object.translation.x == final_x and object.translation.z == final_z:
+			return false
+	return true
